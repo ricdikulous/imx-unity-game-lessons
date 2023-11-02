@@ -1,0 +1,13 @@
+file: Assets/Scripts/GameManager/LoadoutState.cs
+line: 173
+align: middle
+---
+→→→→→→→→→→ async↓↓⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫if (passport != null)
+        {
+            string? email = await passport.GetEmail();
+            emailText.text = email;
+        }↓↓↓⇥←←←←←←←←←⌫⌫⌫⌫async Task↓
+        if (passport != null)
+        {
+            await passport.Logout();
+        }

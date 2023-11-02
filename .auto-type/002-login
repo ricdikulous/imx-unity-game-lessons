@@ -1,0 +1,32 @@
+file: Assets/Scripts/GameManager/LoginState.cs
+line: 7
+align: middle
+---
+⇥
+using Immutable.Passport;
+↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓⇥
+    private Passport passport;
+↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫↑⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫        if (!loginButton.interactable)        
+        {
+            passport = Passport.Instance;
+            if(passport != null)
+            {
+                loginButton.interactable = true;
+                loginButton.GetComponentInChildren<Text>().text = "Login!";
+            }
+        }↓↓↓↓↓⇥
+        // Check if user's logged in before
+        bool hasCredsSaved = await passport.HasCredentialsSaved();
+        if (hasCredsSaved)
+        {
+            // Use existing credentials to connect to Passport
+            Debug.Log("Connecting to Passport using saved credentials...");
+            bool connected = await passport.ConnectSilent();
+            if (!connected)
+            {
+                Debug.Log("Failed to connect using saved credentials");
+                await passport.Connect();
+            }
+        } else {
+            await passport.Connect();
+        }        

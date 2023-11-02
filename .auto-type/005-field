@@ -1,0 +1,6 @@
+file: Assets/Scripts/GameManager/LoadoutState.cs
+line: 79
+align: middle
+---
+⇥
+    private Passport passport;

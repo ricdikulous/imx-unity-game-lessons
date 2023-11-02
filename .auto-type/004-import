@@ -1,0 +1,6 @@
+file: Assets/Scripts/GameManager/LoadoutState.cs
+line: 5
+align: middle
+---
+⇥
+using Immutable.Passport;

@@ -1,0 +1,15 @@
+file: Assets/Scripts/GameManager/LoadoutState.cs
+line: 115
+align: middle
+---
+⇥
+        if (Passport.Instance != null)
+        {
+            passport = Passport.Instance;
+            Debug.Log("Passport Instance successfully loaded");
+        }
+        else
+        {
+            Debug.Log("Passport Instance is null");
+            emailText.text = "Could not load passport";
+        }

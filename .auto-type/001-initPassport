@@ -1,0 +1,16 @@
+file: Assets/Scripts/InitPassport.cs
+line: 4
+align: middle
+---
+using Immutable.Passport;
+↓↓⇥
+    private Passport passport;
+↓↓↓↓        string clientId = "ZJL7JvetcDFBNDlgRs5oJoxuAUUl6uQj";
+        string environment = Immutable.Passport.Model.Environment.SANDBOX;
+        string? redirectUri = null;
+
+#if UNITY_IPHONE || UNITY_ANDROID || UNITY_STANDALONE_OSX
+        redirectUri = "trashdash://callback";
+#endif
+
+        passport = await Passport.Init(clientId, environment, redirectUri);

@@ -1,0 +1,26 @@
+file: Assets/Scripts/UI/Profile.cs
+line: 3
+align: middle
+---
+⇥
+using Immutable.Passport;↓↓↓↓↓↓⇥
+    private Passport passport;
+↓↓↓↓⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫if (Passport.Instance != null) {
+            passport = Passport.Instance;
+            Populate();
+        } else {
+            Debug.Log("Passport Instance is null");
+            emailText.text = "Could not connect to Passport";
+        }↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫try {
+			string? email = await passport.GetEmail();
+			emailText.text = email;
+		} catch (Exception e){
+			emailText.text = "Unable to get the email";
+            Debug.Log($"Unable to get email: {e.Message}");
+        }↓↓↓↓↓⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫try {
+			string? address = await passport.GetAddress(); 
+			addressText.text = address;
+		} catch (Exception e){
+			addressText.text = "Unable to get the address";
+            Debug.Log($"Unable to get address: {e.Message}");
+        }↓↓↓↓↓←←←←←←←await 
