@@ -6,7 +6,7 @@ In the lesson, we successfully logged the player in, but we still have placehold
 
 ## Prerequisite
 
-Before you begin, make sure you have already logged a play in using the Immutable Passport, if you haven't already you can follow the [lesson log in the player here](../04-retreive-player-data-and-logout/README.md). 
+Before you begin, make sure you have already logged a play in using the Immutable Passport, if you haven't already you can follow the [lesson log in the player here](../03-log-the-player-in/README.md). 
 
 ## Updating the LoadoutState Script
 
