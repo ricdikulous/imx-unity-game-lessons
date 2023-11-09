@@ -1,4 +1,4 @@
-# Lesson: Using Immutable Passport for Player Login
+# Lesson 3: Using Immutable Passport for Player Login
 
 Welcome to this lesson on how to use the Immutable Passport for player login in your Unity project. In this tutorial, we will walk you through the steps to integrate the Immutable Passport into your game to allow players to log in seamlessly.
 
@@ -94,6 +94,8 @@ After implementing the Immutable Passport for player login, you can test the flo
 - New players can sign up for an Immutable account.
 - If you already have an account, it will log you in after pressing "Get Started."
 
-## Conclusion
+## Next Steps
 
-Congratulations! You have successfully integrated the Immutable Passport for player login in your Unity game. In the next video, we will explore how to use the Immutable SDK to retrieve player profile information.!
+Congratulations on successfully integrating the Immutable Passport for player login in your Unity game. In the next step, we'll dive into using the Immutable SDK to retrieve player profile information and manage player logout:
+
+[Lesson 04: Retrieve Player Profile Data and Logout](../04-retrieve-player-data-and-logout/README.md)

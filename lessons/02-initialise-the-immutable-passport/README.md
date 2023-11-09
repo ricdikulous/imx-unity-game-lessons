@@ -1,4 +1,4 @@
-# Lesson: Initializing the Immutable Passport in Unity
+# Lesson 2: Initializing the Immutable Passport in Unity
 
 In this lesson, we'll guide you through the process of initializing the Immutable Passport in Unity. This is an essential step if you plan to use Immutable for user authentication in your Unity game.
 
@@ -64,6 +64,8 @@ public class InitPassport : MonoBehaviour
     {
         string clientId = "YOUR_CLIENT_ID";
         string environment = Immutable.Passport.Model.Environment.SANDBOX;
+
+        //Can be left as null if you only want to support windows
         string? redirectUri = null;
 
 #if UNITY_IPHONE || UNITY_ANDROID || UNITY_STANDALONE_OSX
@@ -87,3 +89,9 @@ To use the initialization script in your Unity project, you need to add it to a 
 Now, run your game, and you should see the output of the Immutable Passport initializing in the Unity console below.
 
 That's it! You've successfully initialized the Immutable Passport in your Unity project. This is an important step for integrating Immutable into your game's user authentication system.
+
+## Next Steps
+
+With the Immutable Passport initialized, it's time to enable player login and take your Unity game to the next level. Dive into the following lesson to learn how to achieve this:
+
+[Lesson 3: Using Immutable Passport for Player Login](../03-log-the-player-in/README.md).

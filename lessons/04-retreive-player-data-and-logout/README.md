@@ -1,4 +1,4 @@
-# Immutable Passport Integration and Player Profile Update
+# Lesson 4: Retrieve Player Profile Data and Logout
 
 In this lesson, we will demonstrate how to integrate the Immutable Passport for retrieving a player's profile information and implement the functionality to log the player out. 
 
@@ -36,6 +36,7 @@ else
     emailText.text = "Could not load passport";
 }
 ```
+- This is code is in the `Enter` function so that it is invoked immediately.
 - Retrieve the globally available Passport instance and set it to our field.
 - The globally available instance should not be null at this point because this is invoked after the player has logged in. 
 - If it is null, we show an error message.
@@ -64,11 +65,12 @@ public async Task Logout()
     manager.SwitchState("Login");
 }
 ```
-- We will call this code from the `Profile` script to log the player out
+- We will call passport.Logout() to actually log the player out
+- This code function is public so we can use it in other places of the code
 
 ## Updating the Profile Script
 
-THe `Profile` script is responsible for what gets shown on the profile page.
+The `Profile` script is responsible for what gets shown on the profile page.
 
 ### Import the Immutable library
 
@@ -92,6 +94,7 @@ if (Passport.Instance != null) {
     emailText.text = "Could not connect to Passport";
 }
 ```
+- This is code is in the `Open` function so that it is invoked immediately.
 - Retrieve the globally available Passport instance and set it to our field.
 - The globally available instance should not be null at this point because this is invoked after the player has logged in. 
 - If it is null, we show an error message.

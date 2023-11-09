@@ -1,4 +1,4 @@
-# Lesson: Install Immutable Unity SDK
+# Lesson 1: Install Immutable Unity SDK
 
 Welcome to the "Install Immutable Unity SDK" lesson. In this tutorial, we will guide you through the process of installing the Unity Immutable SDK into your Unity project. Let's get started.
 
@@ -44,6 +44,6 @@ And there you have it! You've successfully installed the Unity Immutable SDK int
 
 ## Next Steps
 
-With the SDK installed, you can proceed to the next lessons to learn how to integrate the Immutable Passport and unlock the full potential of your Unity game.
+Now that you have the SDK installed, it's time to unlock the full potential of your Unity game by learning how to integrate the Immutable Passport. Start your journey with the following lesson:
 
-Happy coding!
+[Lesson 2: Initializing the Immutable Passport in Unity](../02-initialise-the-immutable-passport/README.md)
