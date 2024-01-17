@@ -41,7 +41,7 @@ if (!bucketName) {
 - Configure public read access and security policies.
 
 ```typescript
-const s3MetadataBucket = new s3.Bucket(this,          's3NftMetadataBucket', {
+const s3MetadataBucket = new s3.Bucket(this, 's3NftMetadataBucket', {
    bucketName: bucketName,
    versioned: false,
    removalPolicy: cdk.RemovalPolicy.DESTROY,
