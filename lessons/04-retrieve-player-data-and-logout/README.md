@@ -147,3 +147,7 @@ public async void Logout() {
 ## Conclusion
 With these updates, players can now log in with Immutable Passport, retrieve their data, and log out properly.
 
+
+## Next Steps
+[Lesson 05: Overview of the Minting Architecture](../05-Overview-of-the-Minting-Architecture/README.md)
+
