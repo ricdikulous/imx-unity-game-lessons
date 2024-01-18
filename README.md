@@ -23,7 +23,7 @@ The Unity game codebase for "Trash Dash".
 ## Prerequisites
 - Ensure Git Large File Storage (Git LFS) is installed to properly use this repository.
 
-## Course Structure with Context
+## Course Structure
 1. [**Install the Immutable SDK into Unity**](./lessons/01-install-the-immutable-unity-sdk/README.md)
 2. [**Initialize the Immutable Passport in Unity**](./lessons/02-initialise-the-immutable-passport/)
 3. [**Log the Player in with the Immutable Passport**](./lessons/03-log-the-player-in/README.md)
