@@ -13,42 +13,165 @@ Our goals for this lesson are:
 We've implemented an NFT inventory feature, displaying NFTs owned by the player with names, token IDs, and descriptions. However, these are currently placeholders with mock data and incorrect image rendering. Our task now is to fetch and display actual NFTs owned by the player.
 
 ## Prerequisites
-Before proceeding, make sure you are comfortable with:
-- Unity development and scripting.
-- Working with APIs in Unity.
-- Understanding of NFTs and blockchain technology.
+For this to work it requires that you have a server to make requests to and return the player's NFTs. If you haven't done this already you can complete the [previous lessons](../11-Retrieve-a-Players-NFTs/README.md)
 
 ## Implementation Steps
 
-### NFT Inventory UI Script
-1. **Existing Features**: The script includes loading states, a content panel for NFT displays, and a template for each NFT item.
-2. **Data Structures**: It uses a dictionary to store NFT data and a list to track created prefabs.
-3. **UI Management**: Open and Close methods manage the inventory UI visibility.
-4. **Fetching NFTs**: The Fetch NFTs method retrieves NFT data and calls other functions to process and display this data.
-5. **Populating UI**: The Populate method iterates through NFT data, instantiates new panels, and sets properties based on metadata.
-6. **Dynamic Address Fetching**: We update the fetch method to use the player's actual address, introducing a new class, `Passport Service`, for dynamic and personalized NFT fetching.
+### Step 1: Dynamically Fetch the Player's Account
+Seeing as this is something that we will be doing a number of times in our game let's create a new `PassportService.cs` so we can encapsulate the logic for fetching a Player's account.
 
-### Get Tokens Function
-1. **Initial Approach**: Previously, we used a mock JSON string for sample NFT data.
-2. **Dynamic Data Fetching**: We update the function to fetch real-time data from our server using Unity Web Request.
-3. **Error Handling**: The function handles connection or protocol errors and deserializes the JSON response into a list of TokenObject.
-4. **Implementing Passport Service**: The function now uses dynamic player addresses to fetch NFTs.
+```csharp
+using UnityEngine;
+using System.Collections;
+using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+using Immutable.Passport;
 
-### NFT Inventory UI Script (Continued)
-1. **Dynamic Address Handling**: We update the API call to use the current player's address.
-2. **Passport Service Integration**: This new service manages player-related data, including blockchain addresses.
+public class PassportService
+{
+    public static async Task<List<string>> FetchPlayerAccounts()
+    {
+        Passport passport = Passport.Instance;
+        await passport.ConnectEvm();
+        List<string> accounts = await passport.ZkEvmRequestAccounts();
+        Debug.Log("Players accounts: " + String.Join(", ", accounts)); 
+        return accounts;
+    }
+}
+```
 
-### Fetch Image Function
-1. **Function Creation**: Added in the ApiService class to fetch image textures.
-2. **Implementation**: Uses Unity Web Request Texture to fetch and render images from NFT image URLs.
+Update the `FetchNFTs` function in the `NftInventoryUI.cs` class to use this new service and function
 
-### NftPanel Class
-1. **Display Functionality**: Responsible for displaying NFT metadata.
-2. **Image Rendering**: Adds a function to fetch and set the image texture for each NFT.
+```csharp
+List<string> accounts = await PassportService.FetchPlayerAccounts();
+```
 
-### Unity Demonstration
-1. **API Call**: The inventory now makes API calls to fetch the player's actual NFTs.
-2. **Image Rendering**: Images are successfully rendered, enhancing the user experience.
+### Step 2: ApiService and Get Tokens Function
+
+Create an ApiService to encapulate the business logic for communicating with out server.
+
+```csharp
+using UnityEngine;
+using UnityEngine.Networking;
+using System.Collections;
+using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
+[Serializable]
+public class TokenObject
+{
+    public string animation_url;
+    public string balance;
+    public Chain chain;
+    public string contract_address;
+    public string contract_type;
+    public string description;
+    public string external_link;
+    public string image;
+    public string indexed_at;
+    public string metadata_id;
+    public string metadata_synced_at;
+    public string name;
+    public string token_id;
+    public string updated_at;
+    public string youtube_url;
+}
+
+[Serializable]
+public class Chain
+{
+    public string id;
+    public string name;
+}
+
+public class ApiService : MonoBehaviour
+{
+    private static string mintEndpoint = "http://localhost:3000";    
+    public static async Task<List<TokenObject>> GetTokens(string accountAddress)
+    {
+        using (UnityWebRequest www = UnityWebRequest.Get($"{mintEndpoint}/nfts/{accountAddress}"))
+        {
+            www.SetRequestHeader("Content-Type", "application/json");
+
+            var operation = www.SendWebRequest();
+
+            while (!operation.isDone)
+            {
+                await Task.Yield();
+            }
+
+            if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
+            {
+                Debug.LogError("Error: " + www.error);
+                throw new Exception("Error: " + www.error);
+            }
+            else
+            {
+                string jsonResponse = www.downloadHandler.text;
+                List<TokenObject> tokens = JsonConvert.DeserializeObject<List<TokenObject>>(jsonResponse);
+                return tokens;
+            }
+        }
+    }
+}
+```
+1. **TokenObject**: The represents the data that is returned from our GET /nfts endpoint.
+2. **mintEndpoint**: Is directed at our server running on our localhost.
+3. **GetTokens**: The function takes the player's account, makes a request to `http://localhost:3000/nfts/{accountAddress}`, handles connection or protocol errors and then deserializes the JSON response into a list of TokenObject.
+
+Update the `FetchNFTs` function in the `NftInventoryUI.cs` class to use this new service and function
+
+```csharp
+List<TokenObject> tokenObjects = await ApiService.GetTokens(accounts[0]);
+```
+
+### Step 3: Fetch Image Function
+
+We need a function to fetch the image for the NFTs separately as the metadata only returns the image URL of the NFT
+
+```csharp
+public static async Task<Texture2D> FetchImage(string imageUrl)
+{
+    UnityWebRequest www = UnityWebRequestTexture.GetTexture(imageUrl);
+
+    Debug.Log("Fetching immage with url: " + imageUrl);
+
+    var imageRequest = www.SendWebRequest();
+
+    while (!imageRequest.isDone)
+    {
+        await Task.Yield();
+    }
+
+    if (www.result == UnityWebRequest.Result.Success)
+    {
+        // If successful, get the texture from the web request
+        Texture2D texture = DownloadHandlerTexture.GetContent(www);
+        return texture;
+    }
+    else
+    {
+        // If the web request failed, throw an exception
+        throw new Exception("Failed to fetch image: " + www.error);
+    }
+}
+```
+Update the `Populate` function in the `NftPanel.cs` class to call `FetchImage` with the image URL.
+
+```csharp
+private async void FetchImage(string imageUrl)
+{
+    Texture2D texture = await ApiService.FetchImage(imageUrl);
+    image.texture = texture;
+}
+```
+
+### Test and run
+1. **Start the server**: Your server must be running on `localhost:3000` for this to work.
+2. **Run the game**: Run the game and open the NFT Inventory and you should see the player's NFTs.
 
 ## Conclusion
 We've successfully updated "Trash Dash" to fetch and display the player's NFTs, making them tangible elements within our game. This enhances the overall user experience by integrating NFTs seamlessly into the gameplay.
