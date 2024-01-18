@@ -4,9 +4,7 @@
 In Lesson 14, we're introducing a transformative feature in "Trash Dash": minting NFTs as rewards for completing missions. This update integrates blockchain technology directly into our game mechanics, enhancing the player experience.
 
 ## Prerequisites
-- Familiarity with Unity and C# programming.
-- Understanding of asynchronous programming and API integration in Unity.
-- Knowledge of NFTs and their implementation in gaming.
+In the previous lessons we have setup a server for retrieving the player's NFTs and created an ApiService in our game to call that server. If you haven't already you can complete that in [previous lessons](../13-Equipping-the-NFT-Accessories/README.md)
 
 ## Objectives
 1. Review the current mission completion and reward system.
@@ -32,16 +30,11 @@ In Lesson 14, we're introducing a transformative feature in "Trash Dash": mintin
 - **Integration in MissionUI**: Update the Claim function to include real NFT minting and data display.
 
 ## In-Game Demonstration
-- **Before Minting**: Review the current NFT inventory for baseline comparison.
-- **Claiming Missions**: Navigate to missions and claim a completed one to mint an NFT.
-- **Minting Process**: Observe the minting process and display of the newly minted NFT.
-- **Inventory Update**: Check the inventory again to see the addition of the new NFT.
+1. **Start the server**: Your server must be running on `localhost:3000` for this to work.
+2. **Run the game**: Run the game and open the Loadout. The go to a completed mission and click claim.
 
 ## Conclusion
 We've successfully integrated NFT minting into "Trash Dash," allowing players to earn unique NFTs by completing missions. This feature not only enhances the reward mechanism but also enriches the overall gaming experience with the integration of blockchain technology.
 
 ## Looking Ahead
 In upcoming sessions, we will explore further advancements, like enabling players to craft new NFTs by combining multiple ones.
-
----
-**Stay tuned as we continue to innovate in "Trash Dash" by bringing more interactive NFT features to the game!**
