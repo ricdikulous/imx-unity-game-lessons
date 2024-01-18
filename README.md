@@ -1,28 +1,44 @@
-## Cloning note
+# Integrating NFTs into a Unity Game with Immutable
 
-**This repository use git Large File Support.
-To clone it successfully, you will need to install git lfs** :
+## Course Context
+This course focuses on updating an existing Unity runner game called "Trash Dash" to incorporate Non-Fungible Tokens (NFTs) using technology provided by Immutable and their Unity SDK. The course covers various aspects of NFT integration, including logging players in using Immutable Passport to access their wallets, making API calls for minting and displaying NFTs, uploading NFT metadata, and setting up a server for NFT minting. The primary goal is to transform character accessories in "Trash Dash" into NFTs, enhancing player experience and game dynamics. 
 
-- Download git lfs here : https://git-lfs.github.com/
-- run `git lfs install` in a command line
+**Note**: This course is designed for game developers and focuses specifically on integrating NFTs using Immutable's technology. It is not intended to teach basic Unity development or server setup.
 
-Now you git clone should get the LFS files properly. For support of LFS in Git
-GUI client, please refer to their respective documentation
+## Repository Structure
+This repository is organized into four main folders, each integral to the course:
 
-## Description
+### 1. Infrastructure
+Contains the AWS CDK project for deploying the S3 bucket to store NFT metadata.
 
-This project is an "endless runner" type mobile game created in Unity, enhanced with the Unity Immutable SDK for secure player login and data retrieval using zkEVM technology.
+### 2. MintingServer
+A TypeScript Express.js app that runs a local server for minting NFTs, uploading metadata, and retrieving player NFT data.
 
-You can find the [original project on the Unity Asset Store](https://assetstore.unity.com/packages/essentials/tutorial-projects/endless-runner-sample-game-87901). Please note that this is the old version and does not use the Lightweight Rendering Pipeline or Addressable. See the note at the end of this file. The Asset Store version will be updated when Addressable is out of preview.
+### 3. Lessons
+A series of lessons stepping through each step of integrating NFTs into a Unity game.
 
-Inside the Asset folder, you'll find an "INSTRUCTION.txt" file that highlights various essential aspects of the project, including the integration of the Unity Immutable SDK.
+### 4. TrashDashUnity
+The Unity game codebase for "Trash Dash".
 
-Additionally, an article is available on the [Unity Learn website](https://unity3d.com/learn/tutorials/topics/mobile-touch/trash-dash-code-walkthrough), which provides insights into specific parts of the code, including the implementation of the Unity Immutable SDK for player authentication and data retrieval using zkEVM.
+## Prerequisites
+- Ensure Git Large File Storage (Git LFS) is installed to properly use this repository.
 
-For more in-depth information about the project, instructions on how to build and customize it, and details on how the Unity Immutable SDK is integrated, please visit the [project's wiki](https://github.com/Unity-Technologies/EndlessRunnerSampleGame/wiki).
+## Course Structure with Context
+1. [**Install the Immutable SDK into Unity**](./lessons/01-install-the-immutable-unity-sdk/README.md)
+2. [**Initialize the Immutable Passport in Unity**](./lessons/02-initialise-the-immutable-passport/)
+3. [**Log the Player in with the Immutable Passport**](./lessons/03-log-the-player-in/README.md)
+4. [**Retrieve Player Data with the Immutable Passport**](./lessons/04-retrieve-player-data-and-logout/README.md)
+5. [**Overview of the Minting Architecture**](./lessons/05-Overview-of-the-Minting-Architecture/README.md)
+6. [**Deploy S3 Bucket for NFT Metadata with AWS CDK**](./lessons/06-Creating-an-S3-Bucket-for-NFT-Metadata/README.md)
+7. [**Upload NFT Collection Metadata & Create the Smart Contract**](./lessons/07-Upload-Initial-Metadata-&-Create-Smart-Contract/README.md)
+8. [**Dynamically Upload Metadata**](./lessons/08-Dynamically-Upload-Metadata/README.md)
+9. [**Setting Up Smart Contract Permissions: Granting the Minter Role**](./lessons/09-Setting-Up-Smart-Contract%20Permissions:Granting-the-Minter-Role/README.md)
+10. [**Minting a NFT**](./lessons/10-Minting-Endpoint/README.md)
+11. [**Retrieve a Player's NFTs**](./lessons/11-Retrieve-a-Players-NFTs/README.md)
+12. [**Show NFT Inventory in Game**](./lessons/12-Display-the-Players-NFTs/README.md)
+13. [**Update Game to Use the NFTs**](./lessons/13-Equipping-the-NFT-Accessories/README.md)
+14. [**Mint NFTs in Game**](./lessons/14-Mint-NFTs-In-Game/README.md)
 
-Now, with the Unity Immutable SDK, players can enjoy a secure and seamless login experience and retrieve their data using zkEVM technology within this exciting endless runner game.
+---
 
-## Lessons
-
-In the lessons directory you will see the immutable sdk be integrated in a step by step fashion.
+*For the best learning experience, it is recommended to follow the course structure sequentially, as each lesson builds upon the knowledge of the previous ones.*
