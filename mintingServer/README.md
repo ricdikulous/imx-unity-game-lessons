@@ -40,5 +40,5 @@ Access the Swagger API documentation at `http://localhost:3000/docs` once the se
 - `start`: Launch the server using compiled JavaScript files.
 - `build`: Compile TypeScript files to JavaScript.
 - `dev`: Run the server in development mode with hot reload.
-- `init-metadata`: Initialize metadata services.
+- `init-metadata`: Upload the metadata for the collection.
 - `grant-minter-role`: Run the script to grant minter roles for NFT minting.
