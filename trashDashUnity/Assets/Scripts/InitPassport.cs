@@ -7,18 +7,12 @@ public class InitPassport : MonoBehaviour
 {
     private Passport passport;
 
-
+    // Start is called before the first frame update
     async void Start()
     {
-        string clientId = "ZJL7JvetcDFBNDlgRs5oJoxuAUUl6uQj";
+        string clientId = "bKf3F5v0G9EF6WfYP5y06NBbTd1YC19x";
         string environment = Immutable.Passport.Model.Environment.SANDBOX;
-        string? redirectUri = null;
-
-#if UNITY_IPHONE || UNITY_ANDROID || UNITY_STANDALONE_OSX
-        redirectUri = "trashdash://callback";
-#endif
-
-        passport = await Passport.Init(clientId, environment, redirectUri);
+        passport = await Passport.Init(clientId, environment);
     }
 
     // Update is called once per frame

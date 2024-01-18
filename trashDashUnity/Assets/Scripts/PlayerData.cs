@@ -104,6 +104,10 @@ public class PlayerData
         characterAccessories.Add(name);
     }
 
+    public void ClearAccessories() {
+        characterAccessories.Clear();
+    }
+
     // Mission management
 
     // Will add missions until we reach 2 missions.

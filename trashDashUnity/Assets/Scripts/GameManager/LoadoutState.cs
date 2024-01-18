@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 using Immutable.Passport;
+using System.Threading.Tasks;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using TMPro;
 
@@ -43,6 +45,8 @@ public class LoadoutState : AState
     public Text accesoryNameDisplay;
 	public Image accessoryIconDisplay;
 
+    public GameObject loadingAccessories;
+
 	[Header("Other Data")]
 	public Leaderboard leaderboard;
     public Profile profile;
@@ -78,6 +82,7 @@ public class LoadoutState : AState
     protected readonly Quaternion k_FlippedYAxisRotation = Quaternion.Euler (0f, 180f, 0f);
 
     private Passport passport;
+
     public override void Enter(AState from)
     {
         tutorialBlocker.SetActive(!PlayerData.instance.tutorialDone);
@@ -124,6 +129,41 @@ public class LoadoutState : AState
             emailText.text = "Could not load passport";
         }
 
+        PlayerData.instance.ClearAccessories();
+        FetchAccessoryNFTs();
+        Refresh();
+    }
+
+    public async void FetchAccessoryNFTs() {
+        loadingAccessories.SetActive(true);
+		List<string> accounts = await PassportService.FetchPlayerAccounts();
+        List<TokenObject> tokenObjects = await ApiService.GetTokens(accounts[0]);
+        
+        foreach (var token in tokenObjects)
+        {
+            switch (token.name)
+            {
+                case "Cat Party Hat":
+                    PlayerData.instance.AddAccessory("Trash Cat:Party Hat");
+                    break;
+                case "Cat Construction Hat":
+                    PlayerData.instance.AddAccessory("Trash Cat:Safety");
+                    break;
+                case "Cat Top Hat":
+                    PlayerData.instance.AddAccessory("Trash Cat:Smart");
+                    break;
+                case "Racoon Party Hat":
+                    PlayerData.instance.AddAccessory("Rubbish Raccoon:Party Hat");
+                    break;
+                case "Racoon Construction Hat":
+                    PlayerData.instance.AddAccessory("Rubbish Raccoon:Safety");
+                    break;
+                default:
+                    // Handle the case when token name doesn't match any known value
+                    break;
+            }
+        }
+        loadingAccessories.SetActive(false);
         Refresh();
     }
 
@@ -183,7 +223,11 @@ public class LoadoutState : AState
     {
         if (passport != null)
         {
-            await passport.Logout();
+            #if UNITY_ANDROID || UNITY_IPHONE || (UNITY_STANDALONE_OSX && !UNITY_EDITOR_OSX)
+                await passport.LoginPKCE();
+            #else
+                await passport.Login();
+            #endif
         }
         manager.SwitchState("Login");
     }

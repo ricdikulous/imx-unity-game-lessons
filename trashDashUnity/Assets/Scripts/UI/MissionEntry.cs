@@ -4,10 +4,11 @@ using UnityEngine.UI;
 public class MissionEntry : MonoBehaviour
 {
     public Text descText;
-    public Text rewardText;
     public Button claimButton;
     public Text progressText;
 	public Image background;
+
+    public GameObject loadingMint;
 
 	public Color notCompletedColor;
 	public Color completedColor;
@@ -15,7 +16,7 @@ public class MissionEntry : MonoBehaviour
     public void FillWithMission(MissionBase m, MissionUI owner)
     {
         descText.text = m.GetMissionDesc();
-        rewardText.text = m.reward.ToString();
+        loadingMint.SetActive(false);
 
         if (m.isComplete)
         {
@@ -26,9 +27,12 @@ public class MissionEntry : MonoBehaviour
 
 			progressText.color = Color.white;
 			descText.color = Color.white;
-			rewardText.color = Color.white;
 
-			claimButton.onClick.AddListener(delegate { owner.Claim(m); } );
+			claimButton.onClick.AddListener(delegate {
+                loadingMint.SetActive(true);
+                claimButton.gameObject.SetActive(false);
+                owner.Claim(m); 
+            } );
         }
         else
         {

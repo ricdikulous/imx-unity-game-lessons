@@ -2,6 +2,12 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
+
 
 public class MissionUI : MonoBehaviour
 {
@@ -9,9 +15,21 @@ public class MissionUI : MonoBehaviour
     public AssetReference missionEntryPrefab;
     public AssetReference addMissionButtonPrefab;
 
+    //NFT Popup
+    public GameObject mintedNFT;
+
+    public RawImage nftImage;
+
+    public TextMeshProUGUI nftName;
+
+    public TextMeshProUGUI nftDescription;
+
+    public TextMeshProUGUI nftId;
+
     public IEnumerator Open()
     {
         gameObject.SetActive(true);
+        mintedNFT.SetActive(false);
 
         foreach (Transform t in missionPlace)
             Addressables.ReleaseInstance(t.gameObject);
@@ -53,16 +71,28 @@ public class MissionUI : MonoBehaviour
         StartCoroutine(Open());
     }
 
-    public void Claim(MissionBase m)
+    public async void Claim(MissionBase m)
     {
         PlayerData.instance.ClaimMission(m);
 
-        // Rebuild the UI with the new missions
-        StartCoroutine(Open());
+        List<string> accounts = await PassportService.FetchPlayerAccounts();
+        NftMetadata nftMetadata = await ApiService.MakeMintRequest(accounts[0]);
+
+        Texture2D texture = await ApiService.FetchImage(nftMetadata.image);
+        nftName.text = nftMetadata.name;
+        nftDescription.text = nftMetadata.description;
+        nftId.text = "Token ID: " + nftMetadata.token_id;
+        nftImage.texture = texture;
+        mintedNFT.SetActive(true);
     }
 
     public void Close()
     {
         gameObject.SetActive(false);
+    }
+
+    public void CloseNft() {
+        StartCoroutine(Open());
+        mintedNFT.SetActive(false);
     }
 }
