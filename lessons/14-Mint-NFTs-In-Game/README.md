@@ -21,20 +21,72 @@ In the previous lessons we have setup a server for retrieving the player's NFTs 
 - **NFT Popup Introduction**: Replace in-game currency rewards with a visual NFT popup.
 - **Placeholder Functionality**: Currently, the NFT popup is hardcoded and non-functional.
 
-### Enabling Real NFT Minting
-- **Mint Endpoint Recap**: Review the endpoint created earlier for minting NFTs.
-- **API-Service Class Update**: Introduce the NFT-Metadata class and a function to call the mint endpoint.
+### Enabling NFT Minting
 
-### Implementing NFT Minting in Game
-- **Functionality**: Create an asynchronous function for NFT minting, handling recipient address and server response.
-- **Integration in MissionUI**: Update the Claim function to include real NFT minting and data display.
+Add a function to the `ApiService.cs` class to call our mint endpoint
 
-## In-Game Demonstration
+```csharp
+public static async Task<NftMetadata> MakeMintRequest(string recipientAddress)
+{
+    using (UnityWebRequest www = UnityWebRequest.Post($"{mintEndpoint}/mint", "{\"recipientAddress\":\"" + recipientAddress + "\"}", "application/json"))
+    {
+        www.SetRequestHeader("Content-Type", "application/json");
+
+        var operation = www.SendWebRequest();
+        while (!operation.isDone)
+        {
+            await Task.Yield();
+        }
+
+        if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
+        {
+            Debug.LogError("Error: " + www.error);
+            throw new Exception("Error: " + www.error);
+        }
+        else
+        {
+            string jsonResponse = www.downloadHandler.text;
+
+            // Deserialize the JSON response into NftMetadata
+            NftMetadata result = JsonUtility.FromJson<NftMetadata>(jsonResponse);
+            return result;
+        }
+    }
+}
+```
+- Creates a POST request to the mint endpoint with the recipient's address in JSON format.
+
+- Initiates the web request and waits for completion using an asynchronous loop with `Task.Yield()`.
+
+- Converts the JSON response into an `NftMetadata` object and returns it.
+
+### Integrate into Missions
+Update the `Claim` function in the `MissionUI.cs` class to call the new mint function
+
+```csharp
+public async void Claim(MissionBase m)
+{
+    PlayerData.instance.ClaimMission(m);
+
+    List<string> accounts = await PassportService.FetchPlayerAccounts();
+    NftMetadata nftMetadata = await ApiService.MakeMintRequest(accounts[0]);
+
+    Texture2D texture = await ApiService.FetchImage(nftMetadata.image);
+    nftName.text = nftMetadata.name;
+    nftDescription.text = nftMetadata.description;
+    nftId.text = "Token ID: " + nftMetadata.token_id;
+    nftImage.texture = texture;
+    mintedNFT.SetActive(true);
+}
+```
+- Retrieves the player's account.
+- Calls our new mint function.
+- Retrieves the new NFTs image.
+- Updates the UI to display the new NFT.
+
+### Test and Run
 1. **Start the server**: Your server must be running on `localhost:3000` for this to work.
 2. **Run the game**: Run the game and open the Loadout. The go to a completed mission and click claim.
 
 ## Conclusion
 We've successfully integrated NFT minting into "Trash Dash," allowing players to earn unique NFTs by completing missions. This feature not only enhances the reward mechanism but also enriches the overall gaming experience with the integration of blockchain technology.
-
-## Looking Ahead
-In upcoming sessions, we will explore further advancements, like enabling players to craft new NFTs by combining multiple ones.
