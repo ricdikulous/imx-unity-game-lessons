@@ -2,14 +2,14 @@
 
 ## Prerequisites
 Before starting this lesson, make sure you have:
-- Basic knowledge of TypeScript and AWS services.
 - Access to the Immutable Hub.
-- An AWS account with S3 bucket set up.
-- The bootstrap TypeScript project with the necessary metadata for the NFT collection.
+- An AWS account with an S3 bucket set up.
+
+If you haven't already, you can follow our lesson where we [set up an S3 bucket using the AWS CDK here](../06-Creating-an-S3-Bucket-for-NFT-Metadata/README.md).
 
 ## Overview
 Welcome to Lesson 07 of our course! In this tutorial, we'll establish the foundation of our NFT collection for the "Trash Dash" game. This involves two critical steps:
-1. **Uploading the initial collection metadata** to an AWS S3 bucket.
+1. **Uploading the initial collection metadata** to our AWS S3 bucket.
 2. **Creating and linking a smart contract** for the collection using Immutable Hub.
 
 ### What We're Not Doing
@@ -17,43 +17,151 @@ We won't be uploading metadata for individual NFTs in this lesson. Instead, our 
 
 ## Step-by-Step Guide
 
-### Step 1: Prepare the Metadata
-- Locate the `contract.json` file and the `logo.png` in your project's metadata folder.
-- Note that the `contract.json` file's image field will be updated with the S3 URL of the `logo.png`.
+### Prepare the Metadata
+- Update the values of the `contract.json` file and the `logo.png` in your project's `metadata` folder.
+- Note that the `contract.json` image field will automatically be updated to reference the logo's URL.
 
-### Step 2: Set Up AWS Credentials
-- Ensure AWS credentials and bucket name are loaded from the environment variables.
-- Validate the presence of these variables to prevent execution errors.
+### .env Setup and Initialization
+- Set up AWS credentials and bucket name from the environment variables.
 
-### Step 3: Initialize AWS S3 Client
-- Define constants for metadata directory, file extensions, and S3 paths.
+```sh
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+S3_BUCKET_NAME=
+S3_REGION=
+```
+
+#### Upload Function and Initialization Script
+- Load the env variables
+```typescript
+import * as dotenv from 'dotenv'
+dotenv.config()
+
+const awsAccessKeyId = process.env.AWS_ACCESS_KEY_ID
+const awsSecretAccessKey = process.env.AWS_SECRET_ACCESS_KEY
+const bucketName = process.env.S3_BUCKET_NAME
+const region = process.env.S3_REGION
+
+if (!awsAccessKeyId) {
+  throw new Error('Missing environment variable: AWS_ACCESS_KEY_ID')
+}
+if (!awsSecretAccessKey) {
+  throw new Error('Missing environment variable: AWS_SECRET_ACCESS_KEY')
+}
+if (!bucketName) {
+  throw new Error('Missing environment variable: S3_BUCKET_NAME')
+}
+if (!region) {
+  throw new Error('Missing environment variable: S3_REGION')
+}
+```
+- Define constants for metadata directory, file extensions, and S3 paths
+```typescript
+const contractMetadataDirectory = './metadata/contract-metadata'
+const nftImageExtension = 'png'
+const s3NftMetadataPath = 'nft-metadata/'
+```
+
 - Initialize the AWS S3 client using the AWS SDK.
+```typescript
+const s3 = new S3Client({
+  region: region,
+  credentials: {
+    accessKeyId: awsAccessKeyId,
+    secretAccessKey: awsSecretAccessKey,
+  },
+})
+```
+- Create a function `uploadToS3` for uploading files to S3, and log the upload status.
+```typescript
+async function uploadToS3(
+  localPath: string,
+  key: string,
+  body: Buffer | string,
+  contentType: string,
+): Promise<void> {
+  const params: PutObjectCommand = new PutObjectCommand({
+    Bucket: bucketName,
+    Key: key,
+    Body: body,
+    ContentType: contentType,
+  })
 
-### Step 4: Write the Upload Function
-- Create a function `uploadToS3` for uploading files to S3.
-- The function should log the status of the upload.
-
-### Step 5: Implement the Init Function
-- The `init` function should:
+  try {
+    await s3.send(params)
+    console.log(`Uploaded ${localPath} to ${bucketName}/${key}`)
+  } catch (error) {
+    console.error(
+      `Error uploading ${localPath} to ${bucketName}/${key}:`,
+      error,
+    )
+  }
+}
+```
+- Implement the `init` function to:
   - Upload the `logo.png` to S3.
-  - Read the `contract.json`, update the image URL, and upload it to S3.
-  - Output the URIs for the collection metadata and base URI for NFTs.
+  - Read, update, and upload the `contract.json` to S3.
+  - Output URIs for collection metadata and NFT base URI.
+```typescript
+export async function init() {
+  //Upload the contract logo
+  const contractLogoPath = path.join(
+    contractMetadataDirectory,
+    `logo.${nftImageExtension}`,
+  )
+  const logoS3Key = 'logo.png'
+  await uploadToS3(
+    contractLogoPath,
+    logoS3Key,
+    fs.readFileSync(contractLogoPath),
+    `image/${nftImageExtension}`,
+  )
 
-### Step 6: Run the Script
-- Add a script to `package.json` to execute the `init` function.
-- Use the command `npm run init-metadata` in the terminal to run the script.
+  //Upload the contract metadata
+  const contractMetadataPath = path.join(
+    contractMetadataDirectory,
+    'contract.json',
+  )
+  const s3Key = 'contract.json'
 
-### Step 7: Deploy the Smart Contract
-- Go to Immutable Hub, and select your project (Trash Dash).
-- Grab coins for testing from the faucet if needed.
-- Deploy the contract with a name (e.g., Trash Dash Game), symbol (e.g., TDG), base URI, collection metadata URI, and set royalties.
+  const parsedContractMetadata = JSON.parse(
+    fs.readFileSync(contractMetadataPath, 'utf-8'),
+  )
+  parsedContractMetadata['image'] =
+    `https://${bucketName}.s3.amazonaws.com/${logoS3Key}`
 
-### Step 8: Verify Contract Deployment
+  await uploadToS3(
+    contractMetadataPath,
+    s3Key,
+    JSON.stringify(parsedContractMetadata),
+    'application/json; charset=utf-8',
+  )
+
+  console.log(`
+******************************************************************************
+
+Base URI:                https://${bucketName}.s3.amazonaws.com/${s3NftMetadataPath}
+Collection Metadata URI: https://${bucketName}.s3.amazonaws.com/contract.json
+
+******************************************************************************
+`)
+}
+```
+- Add a script to `package.json` for executing the `init` function.
+```
+"init-metadata": "ts-node -e \"import { init } from './src/metadataService'; init();\""
+```
+- Run the script using `npm run init-metadata`.
+
+#### Deploy the Smart Contract
+- Go to [https://hub.immutable.com](https://hub.immutable.com/) to deploy the smart contract for your project.
+- Define contract details like name, symbol, base URI, and collection metadata URI using the values that were output in the console.
 - Check the transaction on Immutable Hub and block explorer.
-- Link the collection to your project and verify the details like the logo, Base-URI, and Contract-URI.
 
 ## What We Accomplished
 Congratulations! We've successfully uploaded our collection's metadata and created a linked smart contract. This setup is vital for our next steps in integrating NFTs into "Trash Dash."
 
 ## Next Steps
 Stay tuned for the next lesson, where we'll dive into the dynamic metadata upload process. We'll learn how to upload metadata for individual NFTs, enabling unique, randomized assets for our game. See you there!
+
+[Lesson 08: Upload Metadata Script](../08-Dynamically-Upload-Metadata/README.md)

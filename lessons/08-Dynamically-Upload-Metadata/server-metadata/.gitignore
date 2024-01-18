@@ -1,0 +1,22 @@
+# Node.js files
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# TypeScript files
+*.js
+*.js.map
+*.d.ts
+
+# Dependency directories
+/dist/
+/coverage/
+
+# Environment variables file
+.env
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
