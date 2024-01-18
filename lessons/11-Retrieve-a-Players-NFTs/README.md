@@ -8,34 +8,50 @@ In Lesson 11, we focus on retrieving a player's NFTs using Immutable's SDK. This
 
 ## Steps for Retrieving a Player's NFTs
 
-### Step 1: Define List NFTs Function
-In the contract service, create an asynchronous `listNFTs` function that accepts a player's account address. This address is crucial for identifying and retrieving the player's NFTs from the blockchain.
+### Step 1: Implement The Function to retrieve the NFTs
 
-### Step 2: Configure Blockchain Data Settings
-Specify the environment for blockchain interactions. In development, we'll use Immutable's Sandbox environment.
+Implement listNFTs Function in contractService.ts
 
-### Step 3: Create Blockchain Client
-Instantiate a blockchain client using the `Blockchain-Data` class with the defined configuration. This client will facilitate interactions with the blockchain to retrieve NFT data.
+```typescript
+export const listNFTs = async (accountAddress: string) => {
+  const config: blockchainData.BlockchainDataModuleConfiguration = {
+    baseConfig: {
+      environment: immutableConfig.Environment.SANDBOX,
+    },
+  }
 
-### Step 4: Implement List NFTs Function
-Inside a try block, use the blockchain client to list NFTs based on chain name, contract address, and the player's account address. This will return all NFTs owned by the player, along with their associated metadata.
+  const client = new blockchainData.BlockchainData(config)
 
-### Step 5: Integrate List NFTs Function into Routes
-Update the routes file to replace the placeholder code with a call to `listNFTs` and return its result.
+  try {
+    const response = await client.listNFTsByAccountAddress({
+      chainName: 'imtbl-zkevm-testnet',
+      contractAddress: CONTRACT_ADDRESS,
+      accountAddress: accountAddress,
+    })
+    return response
+  } catch (error) {
+    console.error(error)
+  }
+}
+```
+- listNFTs is an exported asynchronous function that takes the address of the account you want to query.
+- Initializes a blockchain data configuration with the Sandbox environment.
+- Creates a BlockchainData client with the specified configuration.
+- Uses the client to asynchronously fetch NFTs associated with the provided accountAddress, specifying the chain name and contract address.
+- Returns the response containing the NFT data.
 
-### Step 6: Test Endpoint with Swagger
-Run the application and use Swagger to interact with the Get endpoint. This endpoint will take an account address as a parameter and, upon execution, display all NFTs owned by the account.
+### Step 2: Integrate List NFTs Function into Routes
+Update the `routes.ts` to call `listNFTs` and return its result to the caller.
 
-## Code Snippets
-The implementation includes code snippets for the creation and integration of the `listNFTs` function.
+```typescript
+const nfts = await listNFTs(accountAddress)
+res.status(200).json(nfts?.result)
+```
 
-\```javascript
-// [Add code snippet for listNFTs function in the contract service]
-\```
-
-\```javascript
-// [Add code snippet for integrating listNFTs function into the routes file]
-\```
+### Step 3: Run Application and Test the Endpoint
+To test it out you can run `npm run dev` and navigate to `http://localhost:3000` where you will see the swagger docs
+- Execute the `/nfts` GET endpoint.
+- Verify the returned NFTs are as you expect.
 
 ## Conclusion
 By completing this lesson, you'll have set a solid foundation for both minting NFTs and retrieving a player's NFTs. This is a significant milestone in integrating NFTs into the "Trash Dash" game.
