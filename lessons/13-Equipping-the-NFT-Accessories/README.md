@@ -75,7 +75,7 @@ FetchAccessoryNFTs();
 ```
 The accessories must be cleared in case there a transaction of NFTs has occurred outside of the game.
 
-### Test and run
+### Test and Run
 1. **Start the server**: Your server must be running on `localhost:3000` for this to work.
 2. **Run the game**: Run the game and open the Loadout. If done correctly you will see a little loading indicator and then you will be able to equip the accessories to the character.
 
