@@ -11,39 +11,86 @@ In this lesson, we focus on a pivotal aspect of NFT integration: setting up smar
 ## Environment File Update and Script Creation
 
 ### Step 1: Update Environment File
-Include the `PRIVATE_KEY` of your minting wallet and the `CONTRACT_ADDRESS` of your NFT contract in your `.env` file. Remember to securely handle the `PRIVATE_KEY`.
+Include the `PRIVATE_KEY` of your minting wallet and the `CONTRACT_ADDRESS` of your NFT contract in your `.env` file.
+
+ - Remember to securely handle the `PRIVATE_KEY`
+- You can find you `CONTRACT_ADDRESS` on the [https://hub.immutable.com](https://hub.immutable.com)
+
+```sh
+PRIVATE_KEY=
+CONTRACT_ADDRESS=
+```
 
 ### Step 2: Script for Granting Minter Role
 We'll develop a script to grant the Minter Role. Below is the complete code snippet for this script:
 
-\```javascript
-// Import necessary modules
-// [Import statements from 'ethers' library and 'dotenv']
+```typescript
+import { getDefaultProvider, Wallet } from 'ethers' // ethers v5
+import { Provider, TransactionResponse } from '@ethersproject/providers' // ethers v5
+import { ERC721Client } from '@imtbl/contracts'
+import * as dotenv from 'dotenv'
+dotenv.config()
 
-// Define CONTRACT_ADDRESS and PRIVATE_KEY
-// [Define and check CONTRACT_ADDRESS and PRIVATE_KEY from .env]
+const CONTRACT_ADDRESS = process.env.CONTRACT_ADDRESS
+const PRIVATE_KEY = process.env.PRIVATE_KEY
 
-// Set up provider
-// [Provider setup code for Immutable's testnet]
+if (!CONTRACT_ADDRESS) {
+  throw new Error('Missing environment variable: CONTRACT_ADDRESS')
+}
 
-// Grant Minter Role Function
-// [Complete grantMinterRole function]
-\```
+if (!PRIVATE_KEY) {
+  throw new Error('Missing environment variable: PRIVATE_KEY')
+}
+
+const provider = getDefaultProvider('https://rpc.testnet.immutable.com')
+
+const grantMinterRole = async (
+  provider: Provider,
+): Promise<TransactionResponse> => {
+  // Bound contract instance
+  const contract = new ERC721Client(CONTRACT_ADDRESS)
+  // The wallet of the intended signer of the mint request
+  const wallet = new Wallet(PRIVATE_KEY, provider)
+
+  // Give the wallet minter role access
+  const populatedTransaction = await contract.populateGrantMinterRole(
+    wallet.address,
+  )
+  const result = await wallet.sendTransaction(populatedTransaction)
+  return result
+}
+
+grantMinterRole(provider)
+```
 
 ### Code Breakdown
-1. **Import Modules**: We're importing tools from the 'ethers' library for blockchain interactions, and 'dotenv' for managing environment variables.
-2. **Define Contract Information**: We define `CONTRACT_ADDRESS` and `PRIVATE_KEY` pulled from environment variables, essential for contract interactions and authenticating transactions.
-3. **Provider Setup**: Establishing a connection to Immutable's testnet to interact with the blockchain.
-4. **Grant Minter Role Function**: An asynchronous function that prepares and sends a transaction to grant the minter role, using the Immutable ERC721 Client and a wallet instance.
+1. **Define Contract Information**: We define `CONTRACT_ADDRESS` and `PRIVATE_KEY` pulled from environment variables, essential for contract interactions and authenticating transactions.
+2. **Provider Setup**: Establishing a connection to Immutable's testnet to interact with the blockchain.
+3. **Grant Minter Role Function**: 
+    1. Smart Contract Instantiation: It initializes a new `ERC721Client` instance, binding the smart contract at `CONTRACT_ADDRESS` to enable interactions.
+
+    2. Wallet Setup: Creates a new Wallet instance using `PRIVATE_KEY` and provider, enabling Ethereum transactions and address management.
+
+    3. Transaction Preparation: Invokes `populateGrantMinterRole` on the contract with wallet.address as the address that will be granted the minter role. Preparing the transaction.
+
+    4. Executing Transaction: Sends the prepared transaction to the blockchain using `wallet.sendTransaction`, which signs it with the wallet's private key.
+
+    5. Transaction Response: Returns the outcome of the transaction as a `TransactionResponse`, concluding the function's operation.
 
 ### Step 3: Update Package.json
 Add a new script command `grant-minter-role` in `package.json` for easy execution of the script.
 
+```json
+"grant-minter-role": "ts-node ./src/grantMinterRole.ts"
+```
+
 ### Step 4: Run and Verify the Script
-Execute the script to grant the minter role to the designated wallet. Once complete, verify the transaction in the Immutable Hub and on the block explorer.
+Execute the script to grant the minter role to the designated wallet. Once complete, verify the transaction in the [Immutable Hub](https://hub.immutable.com) and on the block explorer.
 
 ## Conclusion
 We've now successfully set up the permissions for our wallet to mint NFTs on our smart contract. This foundational setup is crucial for the upcoming minting process.
 
 ## Next Steps
 In the next lesson, we'll delve into the actual minting process, using the Immutable SDK to mint and manage NFTs in "Trash Dash". Stay tuned for more!
+
+[Lesson 10: Minting Endpoint](../10-Minting-Endpoint/README.md)
