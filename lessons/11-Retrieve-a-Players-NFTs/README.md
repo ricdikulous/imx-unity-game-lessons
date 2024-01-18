@@ -1,9 +1,7 @@
 # Lesson 11: Retrieve a Player's NFTs
 
 ## Prerequisites
-- Understanding of Ethereum blockchain and Immutable's SDK.
-- Familiarity with Node.js and REST API development.
-- Completion of previous lessons on setting up contract services and minting NFTs.
+This lesson assumes that you already have a smart contract in place and are able to mint NFTs from that contract. If you haven't done that already please go back and complete the [previous lessons](../10-Minting-Endpoint/README.md)
 
 ## Overview
 In Lesson 11, we focus on retrieving a player's NFTs using Immutable's SDK. This lesson involves adding a new function in the contract service and refining the Get NFTs endpoint to return the player's NFTs. Successfully retrieving NFTs is a crucial step in integrating NFT functionality into our game.
@@ -44,3 +42,5 @@ By completing this lesson, you'll have set a solid foundation for both minting N
 
 ## Next Steps
 With these capabilities in place, we are now ready to take the next big step: integrating NFTs directly into our game. Stay tuned for further developments in our NFT integration journey!
+
+[Lesson 12: Display the Player's NFTs In Game](../12-Display-the-Players-NFTs/README.md)

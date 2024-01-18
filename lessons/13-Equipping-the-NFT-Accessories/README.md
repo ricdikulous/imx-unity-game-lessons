@@ -1,4 +1,4 @@
-# Lesson 13: Update the Game to Use NFTs in "Trash Dash"
+# Lesson 13: Update the Game to Use NFTs In Game
 
 ## Introduction
 In Lesson 13, we're enhancing "Trash Dash" by integrating NFTs into the game's mechanics, shifting the player experience from traditional in-game purchases to NFT-based accessory ownership.
@@ -42,5 +42,4 @@ We've successfully integrated NFTs into "Trash Dash," updating the game mechanic
 ## Next Steps
 Prepare for the next lesson, where we introduce in-game NFT minting, expanding the interactive possibilities in "Trash Dash."
 
----
-**Stay tuned for the exciting addition of in-game NFT minting in the upcoming lesson!**
+[Lesson 14: Mint NFTs In Game](../14-Mint-NFTs-In-Game/README.md)

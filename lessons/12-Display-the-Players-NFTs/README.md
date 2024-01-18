@@ -1,4 +1,4 @@
-# Lesson 12: Display the Player's NFTs in "Trash Dash"
+# Lesson 12: Display the Player's NFTs In Game
 
 ## Introduction
 In today's lesson, Lesson 12, we're focusing on a critical aspect of our game development for "Trash Dash" — displaying the player's NFTs in the game. This follows our previous work of setting up the minting server.
@@ -56,5 +56,4 @@ We've successfully updated "Trash Dash" to fetch and display the player's NFTs, 
 ## Next Steps
 In the next lesson, we will take these NFTs beyond visual elements, making them functional within the game. Stay tuned as we continue to revolutionize the gaming experience with NFT integration.
 
----
-**Stay excited for our next lesson, where we bring functionality to these NFTs within "Trash Dash"!**
+[Lesson 13: Update the Game to Use NFTs In Game](../13-Equipping-the-NFT-Accessories/README.md)

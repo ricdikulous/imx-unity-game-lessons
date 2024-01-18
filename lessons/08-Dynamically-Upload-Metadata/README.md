@@ -90,7 +90,7 @@ res.status(200).json(metadata)
 ```
 
 ## Test out in Swagger
-To test it out you can run `npm run dev` and navigate to `http://localhost:3000` where you will see the swagger donc
+To test it out you can run `npm run dev` and navigate to `http://localhost:3000` where you will see the swagger docs
 - Execute the `/mint` POST endpoint.
 - Verify the image and metadata URLs post-upload.
 

@@ -1,4 +1,4 @@
-# Lesson 14: Mint NFTs in Game - "Trash Dash"
+# Lesson 14: Mint NFTs In Game
 
 ## Introduction
 In Lesson 14, we're introducing a transformative feature in "Trash Dash": minting NFTs as rewards for completing missions. This update integrates blockchain technology directly into our game mechanics, enhancing the player experience.
