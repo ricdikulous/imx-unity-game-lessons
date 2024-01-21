@@ -22,7 +22,7 @@ To start, find the LoadoutState script in your Unity project. In our Trash Dash 
 - Inside `Assets`, open the `Scripts` folder.
 - Look for the `GameManager` folder and locate the `Loadout` script
 
-## Updating the LoadoutState Script
+### Updating the LoadoutState Script
 
 The `LoadoutState` script is responsible for what gets displayed on the main menu of the game. We will update this script so that it shows the player's email and expose a public function to log the player out.
 
@@ -83,9 +83,13 @@ public async Task Logout()
 - We will call passport.Logout() to actually log the player out
 - This code function is public so we can use it in other places of the code
 
-## Updating the Profile Script
+## Locate the Profile Script
 
-The `Profile` script is responsible for what gets shown on the profile page.
+We now need to update the `Profile` script, which is responsible for what gets shown on the profile page.
+
+- Navigate to your Unity project's `Assets` folder.
+- Inside `Assets`, open the `Scripts` folder.
+- Look for the `UI` folder and locate the `Profile` script
 
 ### Import the Immutable library
 
