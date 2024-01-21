@@ -1,6 +1,6 @@
 # Lesson 4: Retrieve Player Profile Data and Logout
 
-In this lesson, we will demonstrate how to integrate the Immutable Passport for retrieving a player's profile information and implement the functionality to log the player out. 
+In this lesson, we will demonstrate how to use Immutable Passport for retrieving a player's profile information and implement the functionality to log the player out. 
 
 ## Overview
 
