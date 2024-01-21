@@ -11,7 +11,7 @@ Here's an overview of what we'll cover in this lesson:
 ## Prerequisites
 - Familiarity with Node.js, Ethereum blockchain, and the Immutable SDK.
 - Understanding of REST API endpoints and Swagger documentation.
-- Completion of previous lessons covering the setup of the environment file and granting the minter role.
+- Completion of previous lessons covering the setup of the environment file and [granting the minter role](../09-Setting-Up-Smart-Contract%20Permissions:Granting-the-Minter-Role/README.md).
 
 ## Steps for Minting an NFT
 
