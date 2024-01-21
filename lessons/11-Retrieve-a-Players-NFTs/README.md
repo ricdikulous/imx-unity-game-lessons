@@ -60,8 +60,8 @@ res.status(200).json(nfts?.result)
 ```
 
 ### Step 3: Run Application and Test the Endpoint
-To test it out you can run `npm run dev` and navigate to `http://localhost:3000` where you will see the swagger docs
-- Execute the `/nfts` GET endpoint.
+To test it out you can run `npm run dev` and navigate to `http://localhost:3000` where you will see the Swagger UI:
+- Execute the `/nfts` GET endpoint and enter in a player's account address to check their NFTs
 - Verify the returned NFTs are as you expect.
 
 ## Conclusion
