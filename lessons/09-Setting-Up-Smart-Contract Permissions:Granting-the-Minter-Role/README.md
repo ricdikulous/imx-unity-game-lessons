@@ -1,12 +1,16 @@
 # Lesson 09: Setting Up Smart Contract Permissions
+In this lesson, we focus on a pivotal aspect of NFT integration: setting up smart contract permissions for minting NFTs.
+
+## Overview
+Here's an overview of what we'll cover in this lesson:
+1. We'll update our environment file and create a script to grant minting permissions to a user's wallet.
 
 ## Prerequisites
 - Familiarity with Ethereum smart contracts and blockchain transactions.
 - Understanding of the 'ethers' library and environment variable management in Node.js.
 - Access to Immutable Hub and your NFT contract.
 
-## Overview
-In this lesson, we focus on a pivotal aspect of NFT integration: setting up smart contract permissions for minting NFTs. We'll update our environment file and create a script to grant minting permissions to a user's wallet. This step is essential before proceeding with NFT minting.
+
 
 ## Environment File Update and Script Creation
 
