@@ -121,12 +121,6 @@ public class ApiService : MonoBehaviour
 2. **mintEndpoint**: Is directed at our server running on our localhost.
 3. **GetTokens**: The function takes the player's account, makes a request to `http://localhost:3000/nfts/{accountAddress}`, handles connection or protocol errors and then deserializes the JSON response into a list of TokenObject.
 
-Update the `FetchNFTs` function in the `NftInventoryUI.cs` class to use this new service and function
-
-```csharp
-List<TokenObject> tokenObjects = await ApiService.GetTokens(accounts[0]);
-```
-
 ### Step 3: Fetch Image Function
 
 We need a function to fetch the image for the NFTs separately as the metadata only returns the image URL of the NFT
