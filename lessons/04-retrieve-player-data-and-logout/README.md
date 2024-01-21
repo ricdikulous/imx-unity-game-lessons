@@ -14,6 +14,14 @@ Here's an overview of what we'll cover in this lesson:
 
 Before you begin, make sure you have already created the functionality to log a player in with Immutable Passport. If you haven't already, you can achieve this in our previous lesson for [logging in the player here](../03-log-the-player-in/README.md). 
 
+## Locate or create the LoadoutState Script
+
+To start, find the LoadoutState script in your Unity project. In our Trash Dash project you can follow these steps to locate it:
+
+- Navigate to your Unity project's `Assets` folder.
+- Inside `Assets`, open the `Scripts` folder.
+- Look for the `GameManager` folder and locate the `Loadout` script
+
 ## Updating the LoadoutState Script
 
 The `LoadoutState` script is responsible for what gets displayed on the main menu of the game. We will update this script so that it shows the player's email and expose a public function to log the player out.
