@@ -8,7 +8,7 @@ Here's an overview of what we'll cover in this lesson:
 3. Display each NFT, complete with its image and metadata, in the game.
 
 ## Prerequisites
-For this to work it requires that you have a server to make requests to and return the player's NFTs. If you haven't done this already you can complete the [previous lessons](../11-Retrieve-a-Players-NFTs/README.md)
+For this to work it requires that you have a server to make requests to and return the player's NFTs. If you haven't done this already you can complete the [previous lessons](../11-Retrieve-a-Players-NFTs/README.md).
 
 ## Current State of the Game
 We've implemented an NFT inventory feature, displaying NFTs owned by the player with names, token IDs, and descriptions. However, these are currently placeholders with mock data and incorrect image rendering. Our task now is to fetch and display actual NFTs owned by the player.
