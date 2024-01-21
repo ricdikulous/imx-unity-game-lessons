@@ -13,7 +13,7 @@ Here's an overview of what we'll cover in this lesson:
 
 ## Prerequisites
 
-Before you begin, make sure you have installed the Immutable Unity SDK in your unity project, if you haven't already you can follow the [lesson to initialise Install the Immutable Unity SDK here](../01-install-the-immutable-unity-sdk/README.md). 
+Before you begin, make sure you have installed the Immutable Unity SDK in your unity project, if you haven't already you can follow the [lesson to Install the Immutable Unity SDK here](../01-install-the-immutable-unity-sdk/README.md). 
 
 ## 1. Create a Project in the Immutable Hub
 
