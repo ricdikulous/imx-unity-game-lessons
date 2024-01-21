@@ -6,13 +6,12 @@ Here's an overview of what we'll cover in this lesson:
 1. Add a new Service file
 2. Create a Minting function
 3. Integrate the Minting function with our API endpoint
+4. Test the minting process with the Swagger API
 
 ## Prerequisites
 - Familiarity with Node.js, Ethereum blockchain, and the Immutable SDK.
 - Understanding of REST API endpoints and Swagger documentation.
 - Completion of previous lessons covering the setup of the environment file and granting the minter role.
-
-
 
 ## Steps for Minting an NFT
 
