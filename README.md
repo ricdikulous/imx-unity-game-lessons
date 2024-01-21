@@ -31,7 +31,7 @@ The Unity game codebase for "Trash Dash".
 5. [**Overview of the Minting Architecture**](./lessons/05-Overview-of-the-Minting-Architecture/README.md)
 6. [**Deploy S3 Bucket for NFT Metadata with AWS CDK**](./lessons/06-Creating-an-S3-Bucket-for-NFT-Metadata/README.md)
 7. [**Upload NFT Collection Metadata & Deploy Smart Contract**](./lessons/07-Upload-Initial-Metadata-&-Create-Smart-Contract/README.md)
-8. [**Dynamically Upload Metadata**](./lessons/08-Dynamically-Upload-Metadata/README.md)
+8. [**Dynamic Metadata Upload for Individual Game Assets**](./lessons/08-Dynamically-Upload-Metadata/README.md)
 9. [**Setting Up Smart Contract Permissions: Granting the Minter Role**](./lessons/09-Setting-Up-Smart-Contract%20Permissions:Granting-the-Minter-Role/README.md)
 10. [**Minting a NFT**](./lessons/10-Minting-Endpoint/README.md)
 11. [**Retrieve a Player's NFTs**](./lessons/11-Retrieve-a-Players-NFTs/README.md)
