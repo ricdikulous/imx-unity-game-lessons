@@ -13,7 +13,7 @@ Here's an overview of what we'll cover in this lesson:
 ## Environment File Update and Script Creation
 
 ### Step 1: Update Environment File
-You can find a copy of our [permission project folder here](../lessons/09-Setting-Up-Smart-Contract%20Permissions:Granting-the-Minter-Role/permission)
+You can find a copy of our [permission project folder here](../09-Setting-Up-Smart-Contract%20Permissions:Granting-the-Minter-Role/permission)
 Include the `PRIVATE_KEY` of your minting wallet and the `CONTRACT_ADDRESS` of your NFT contract in your `.env` file.
 
  - Remember to securely handle the `PRIVATE_KEY`
