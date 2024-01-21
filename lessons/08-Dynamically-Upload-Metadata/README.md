@@ -1,4 +1,4 @@
-# Lesson 08: Upload Metadata Script
+# Lesson 08: Upload Dynamic Metadata Script
 Welcome to Lesson 08, where we focus on the dynamic upload of metadata, a core feature in creating unique NFTs for our players.
 
 ## Overview
@@ -20,7 +20,7 @@ We've updated our project to include the Express framework, facilitating API end
 - [https://swagger.io](https://swagger.io)
 
 ## Project Endpoints
-Our project currently has two primary endpoints:
+Our project currently has two primary endpoints in the `routes.ts` file:
 - A POST endpoint for minting NFTs.
 - A GET endpoint for retrieving player's NFTs.
 Both are currently set to return mocked values.
