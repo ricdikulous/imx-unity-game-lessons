@@ -26,7 +26,7 @@ Our project currently has two primary endpoints in the `routes.ts` file:
 Both are currently set to return mocked values.
 
 ## Metadata Folder Structure
-We have restructured our `metadata` folder, adding two subfolders:
+We have restructured our `metadata` folder available [here](../08-Dynamically-Upload-Metadata/server-metadata), adding two subfolders:
 - `images/`: Stores visual representations of NFTs.
 - `metadata/`: Contains JSON files describing each NFT's attributes.
 
