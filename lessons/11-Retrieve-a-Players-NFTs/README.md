@@ -8,9 +8,7 @@ Here's an overview of what we'll cover in this lesson:
 3. Test our changes in Swagger
 
 ## Prerequisites
-This lesson assumes that you already have a smart contract in place and are able to mint NFTs from that contract. If you haven't done that already please go back and complete the [previous lessons](../10-Minting-Endpoint/README.md)
-
-
+This lesson assumes that you already have a smart contract in place and are able to mint NFTs from that contract. If you haven't done that already please go back and complete the [previous lessons](../10-Minting-Endpoint/README.md).
 
 ## Steps for Retrieving a Player's NFTs
 
