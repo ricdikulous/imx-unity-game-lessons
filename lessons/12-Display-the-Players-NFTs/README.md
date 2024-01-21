@@ -1,5 +1,5 @@
 # Lesson 12: Display the Player's NFTs In Game
-In today's lesson, Lesson 12, we're focusing on a critical aspect of our game development, displaying the player's NFTs inside the game.
+In lesson 12, we're focusing on a critical aspect of our game development, displaying the player's NFTs inside the game.
 
 ## Overview
 Here's an overview of what we'll cover in this lesson:
