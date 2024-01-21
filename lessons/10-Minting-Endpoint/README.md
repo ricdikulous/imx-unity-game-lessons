@@ -1,12 +1,18 @@
-# Lesson 10: Minting a NFT
+# Lesson 10: Minting an NFT
+In Lesson 10, we implement the core functionality of minting NFTs using the Immutable SDK in our "Trash Dash" game.
+
+## Overview
+Here's an overview of what we'll cover in this lesson:
+1. Add a new Service file
+2. Create a Minting function
+3. Integrate the Minting function with our API endpoint
 
 ## Prerequisites
 - Familiarity with Node.js, Ethereum blockchain, and the Immutable SDK.
 - Understanding of REST API endpoints and Swagger documentation.
 - Completion of previous lessons covering the setup of the environment file and granting the minter role.
 
-## Overview
-In Lesson 10, we implement the core functionality of minting NFTs using the Immutable SDK in our "Trash Dash" game. This lesson guides you through updating the server to mint NFTs, including the creation of a new service for smart contract interactions and the integration of this functionality into our API.
+
 
 ## Steps for Minting an NFT
 
