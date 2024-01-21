@@ -101,7 +101,7 @@ public async void Claim(MissionBase m)
 
 ### Test and Run
 1. **Start the server**: Your server must be running on `localhost:3000` for this to work.
-2. **Run the game**: Run the game and open the Loadout. The go to a completed mission and click claim.
+2. **Run the game**: Run the game and check if you can claim an NFT as a rewward for completed missions. You can also check the in-game inventory to see the NFT appear there.
 
 ## Conclusion
 We've successfully integrated NFT minting into "Trash Dash," allowing players to earn unique NFTs by completing missions. This feature not only enhances the reward mechanism but also enriches the overall gaming experience with the integration of blockchain technology.
