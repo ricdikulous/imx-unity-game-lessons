@@ -1,19 +1,18 @@
 # Lesson 6: Creating an S3 Bucket for NFT Metadata
 
-## Introduction
 Welcome to Lesson 6 of our course, where we will focus on creating an Amazon S3 bucket to store the metadata for our NFTs. S3, known for its fast latency and ease of updates, is a robust choice for our needs in "Trash Dash". This lesson will guide you through the process using the AWS Cloud Development Kit (CDK).
-
-## Prerequisites
-- Basic understanding of AWS services.
-- AWS account setup.
-
-If you haven't already you can review the architecture that we will be building out in the following lessons [here](../05-Overview-of-the-Minting-Architecture/README.md).
 
 ## Overview
 
 Here's an overview of what we'll cover in this lesson:
 
 1. Create an S3 bucket to store NFT Metadata
+
+## Prerequisites
+- Basic understanding of AWS services.
+- AWS account setup.
+
+If you haven't already you can review the architecture that we will be building out in the following lessons [here](../05-Overview-of-the-Minting-Architecture/README.md).
 
 ## What is AWS CDK?
 The AWS Cloud Development Kit (CDK) is a powerful, open-source framework that allows developers to define cloud infrastructure in code. It supports languages like TypeScript and Python, enabling a more intuitive and manageable approach to handling AWS resources.
