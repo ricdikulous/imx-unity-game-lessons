@@ -15,7 +15,7 @@ This lesson assumes that you already have a smart contract in place and are able
 
 ### Step 1: Implement The Function to retrieve the NFTs
 
-Implement listNFTs Function in contractService.ts
+Implement `listNFTs` function in `contractService.ts`
 
 ```typescript
 export const listNFTs = async (accountAddress: string) => {
