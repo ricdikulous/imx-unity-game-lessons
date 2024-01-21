@@ -1,4 +1,4 @@
-# Lesson 10: Minting Endpoint
+# Lesson 10: Minting a NFT
 
 ## Prerequisites
 - Familiarity with Node.js, Ethereum blockchain, and the Immutable SDK.
