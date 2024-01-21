@@ -11,7 +11,7 @@ Welcome to Lesson 5 of our course, where we delve into the architecture necessar
 
 The goal of this lesson is to provide you with a clear understanding of the overall architecture for minting NFTs within "Trash Dash". Here's an overview of what we'll cover in this lesson:
 
-1. We’ll explore the expansion of our current integration with Immutable Passport
+1. We’ll conceptually explore the expansion of our Immutable Passport integration
 2. How to allow minting rewards as NFTs
 3. How players can utilize NFTs in the game
 
