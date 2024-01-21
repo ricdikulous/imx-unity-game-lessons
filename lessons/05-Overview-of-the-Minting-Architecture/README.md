@@ -1,7 +1,7 @@
 # Overview of the Minting Architecture for "Trash Dash"
 
 ## Prerequisites
-Before diving into this lesson, ensure you are familiar with our existing integration of Immutable Passport in our game. If you are not, you can check out this lesson for [retrieving player data](../04-retrieve-player-data-and-logout/README.md)
+Before diving into this lesson, ensure you are familiar with our existing integration of Immutable Passport in our game. If you are not, you can check out this lesson for [retrieving player data](../04-retrieve-player-data-and-logout/README.md).
 
 
 ## Introduction
