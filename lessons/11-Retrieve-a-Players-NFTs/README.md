@@ -7,9 +7,9 @@ Here's an overview of what we'll cover in this lesson:
 2. Test our changes in Swagger
 
 ## Prerequisites
-This lesson assumes that you already have a smart contract in place and are able to mint NFTs from that contract. If you haven't done that already please go back and complete the [previous lessons](../10-Minting-Endpoint/README.md).
+To proceed, you will need to have installed the [Immutable SDK](https://docs.immutable.com/docs/zkEVM/sdks/typescript) using `npm install @imtbl/sdk`.
 
-If you haven't already, install the [Immutable SDK](https://docs.immutable.com/docs/zkEVM/sdks/typescript) using `npm install @imtbl/sdk`
+This lesson assumes that you already have a smart contract in place and are able to mint NFTs from that contract. If you haven't done that already please go back and complete the [previous lessons](../10-Minting-Endpoint/README.md).
 
 ## Steps for Retrieving a Player's NFTs
 
