@@ -88,7 +88,7 @@ public async void LoginUser()
 - This function is invoked when the player clicks the login button.
 - It checks if the player has existing credentials using `passport.HasCredentialsSaved()`.
 - If credentials exist, it attempts to log the player in seamlessly by calling `passport.ConnectSilent()`. If successful, it returns `true`.
-- If the credentials are not valid, or there we no saved credentials, and the player must log in using the browser-based flow using `passport.Connect()`
+- If the credentials are not valid or there are no saved credentials, then the player must log in using the browser-based flow using `passport.Connect()`
 - We then send the player to the main menu using `manager.SwitchState("Loadout")`
 
 
