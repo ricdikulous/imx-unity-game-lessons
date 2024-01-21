@@ -87,7 +87,7 @@ Add a new script command `grant-minter-role` in `package.json` for easy executio
 ```
 
 ### Step 4: Run and Verify the Script
-Execute the script by executing `npm run grant-minter-role` in the terminal to grant the minter role to the designated wallet. Once complete, verify the transaction in the [Immutable Hub](https://hub.immutable.com) and on the block explorer.
+Execute the script by executing `npm run grant-minter-role` in the terminal to grant the minter role to the designated wallet. You can verify this step was successful by navigating to the [Immutable Hub](https://hub.immutable.com) and clicking on the `Block Explorer` for your NFT collection - you should see a transaction with `grantMinterRole` in the Method field.
 
 ## Conclusion
 We've now successfully set up the permissions for our wallet to mint NFTs on our smart contract. This foundational setup is crucial for the upcoming minting process.
