@@ -29,7 +29,7 @@ In the previous lessons we have setup a server for retrieving the player's NFTs 
 
 ## Updating Game Mechanics
 
-Update the `LoadoutState.cs` class with a function to fetch the player's NFTs and update the PlayerData
+Update the `LoadoutState.cs` class with a function to fetch the player's NFTs and update the PlayerData:
 
 ```csharp
 public async void FetchAccessoryNFTs() {
@@ -66,7 +66,7 @@ public async void FetchAccessoryNFTs() {
   }
 ```
 
-Update the `Enter` function in the loadoutstate to clear the player's accessories and call our new function
+Update the `Enter` function in the loadoutstate to clear the player's accessories and call our new function:
 
 ```csharp
 PlayerData.instance.ClearAccessories();
