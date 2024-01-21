@@ -37,7 +37,7 @@ using Immutable.Passport;
 private Passport passport;
 ```
 
-### Initialize the passport field
+### Initialize the passport field in the `Enter` function
 ```csharp
 if (Passport.Instance != null)
 {
