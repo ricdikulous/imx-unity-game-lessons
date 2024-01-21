@@ -33,7 +33,7 @@ The Unity game codebase for "Trash Dash".
 7. [**Upload NFT Collection Metadata & Deploy Smart Contract**](./lessons/07-Upload-Initial-Metadata-&-Create-Smart-Contract/README.md)
 8. [**Dynamic Metadata Upload for Individual Game Assets**](./lessons/08-Dynamically-Upload-Metadata/README.md)
 9. [**Setting Up Smart Contract Permissions: Granting the Minter Role**](./lessons/09-Setting-Up-Smart-Contract%20Permissions:Granting-the-Minter-Role/README.md)
-10. [**Minting a NFT**](./lessons/10-Minting-Endpoint/README.md)
+10. [**Minting an NFT**](./lessons/10-Minting-Endpoint/README.md)
 11. [**Retrieve a Player's NFTs**](./lessons/11-Retrieve-a-Players-NFTs/README.md)
 12. [**Show NFT Inventory in Game**](./lessons/12-Display-the-Players-NFTs/README.md)
 13. [**Update Game to Use the NFTs**](./lessons/13-Equipping-the-NFT-Accessories/README.md)
