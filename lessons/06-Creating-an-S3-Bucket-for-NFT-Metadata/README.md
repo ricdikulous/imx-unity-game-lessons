@@ -9,6 +9,12 @@ Welcome to Lesson 6 of our course, where we will focus on creating an Amazon S3 
 
 If you haven't already you can review the architecture that we will be building out in the following lessons [here](../05-Overview-of-the-Minting-Architecture/README.md).
 
+## Overview
+
+Here's an overview of what we'll cover in this lesson:
+
+1. Create an S3 bucket to store NFT Metadata
+
 ## What is AWS CDK?
 The AWS Cloud Development Kit (CDK) is a powerful, open-source framework that allows developers to define cloud infrastructure in code. It supports languages like TypeScript and Python, enabling a more intuitive and manageable approach to handling AWS resources.
 
