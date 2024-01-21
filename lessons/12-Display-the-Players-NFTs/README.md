@@ -48,7 +48,7 @@ List<TokenObject> tokenObjects = await ApiService.GetTokens(accounts[0]);
 
 ### Step 2: ApiService and Get Tokens Function
 
-Create an ApiService to encapulate the business logic for communicating with out server.
+Create an `ApiService.cs` file to encapulate the business logic for communicating with out server.
 
 ```csharp
 using UnityEngine;
