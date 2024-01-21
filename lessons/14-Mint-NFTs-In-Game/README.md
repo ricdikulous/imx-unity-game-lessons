@@ -1,15 +1,14 @@
-# Lesson 14: Mint NFTs In Game
-
-## Introduction
+# Lesson 14: Mint NFTs in Game
 In Lesson 14, we're introducing a transformative feature in "Trash Dash": minting NFTs as rewards for completing missions. This update integrates blockchain technology directly into our game mechanics, enhancing the player experience.
 
-## Prerequisites
-In the previous lessons we have setup a server for retrieving the player's NFTs and created an ApiService in our game to call that server. If you haven't already you can complete that in [previous lessons](../13-Equipping-the-NFT-Accessories/README.md)
-
-## Objectives
+## Overview
+Here's an overview of what we'll cover in this lesson:
 1. Review the current mission completion and reward system.
 2. Update game mechanics to reward players with NFTs instead of in-game currency.
 3. Demonstrate the updated game flow where players claim NFTs as mission rewards.
+
+## Prerequisites
+In the previous lessons we have setup a server for retrieving the player's NFTs and created an ApiService in our game to call that server. If you haven't already you can complete that in [previous lessons](../13-Equipping-the-NFT-Accessories/README.md).
 
 ## Transition to NFT Rewards
 
