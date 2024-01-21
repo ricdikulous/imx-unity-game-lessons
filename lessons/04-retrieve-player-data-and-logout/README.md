@@ -37,7 +37,7 @@ using Immutable.Passport;
 private Passport passport;
 ```
 
-### Initialize the passport field in the `Enter` function
+### Initialize the passport field in the Enter function
 ```csharp
 if (Passport.Instance != null)
 {
@@ -50,12 +50,12 @@ else
     emailText.text = "Could not load passport";
 }
 ```
-- This is code is in the `Enter` function so that it is invoked immediately.
+- This code is in the `Enter` function so that it is invoked immediately.
 - Retrieve the globally available Passport instance and set it to our field.
 - The globally available instance should not be null at this point because this is invoked after the player has logged in. 
 - If it is null, we show an error message.
 
-### Retrieve the email 
+### Retrieve the email in the GetEmail function
 ```csharp
 public async void GetEmail()
 {
@@ -66,9 +66,10 @@ public async void GetEmail()
     }
 }
 ```
+- This code is in the `GetEmail` function.
 - Update the code that sets the email text on the screen to dynamically retrieve the player's email using the Passport.
 
-### Update the logout function
+### Update the Logout function
 ```csharp
 public async Task Logout()
 {
