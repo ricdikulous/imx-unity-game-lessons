@@ -1,10 +1,5 @@
 # Overview of the Minting Architecture for "Trash Dash"
 
-## Prerequisites
-Before diving into this lesson, ensure you are familiar with our existing integration of Immutable Passport in our game. If you are not, you can check out this lesson for [retrieving player data](../04-retrieve-player-data-and-logout/README.md).
-
-
-## Introduction
 Welcome to Lesson 5 of our course, where we delve into the architecture necessary for adding NFT minting to "Trash Dash". This lesson will not involve coding; instead, we focus on understanding the big picture of how NFT minting will be integrated into our game.
 
 ## Overview
@@ -14,6 +9,9 @@ The goal of this lesson is to provide you with a clear understanding of the over
 1. We’ll conceptually explore the expansion of our Immutable Passport integration
 2. How to allow minting rewards as NFTs
 3. How players can utilize NFTs in the game
+
+## Prerequisites
+Before diving into this lesson, ensure you are familiar with our existing integration of Immutable Passport in our game. If you are not, you can check out this lesson for [retrieving player data](../04-retrieve-player-data-and-logout/README.md).
 
 ## Current State of the Game
 Currently, "Trash Dash" has basic integration with Immutable Passport, allowing players to log in and fetch basic details. We aim to expand this by introducing NFTs. Specifically, we'll focus on converting accessories into NFTs. Players will be able to receive these accessories as NFTs for completing missions, view them in an inventory screen, and equip them via the loadout page.
