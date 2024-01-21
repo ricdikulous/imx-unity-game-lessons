@@ -22,7 +22,7 @@ Currently, "Trash Dash" has basic integration with Immutable Passport, allowing 
 - **Existing Framework**: The game currently communicates directly with Immutable for player logins and data retrieval.
 - **Minting Server**: We will introduce a dedicated server for minting NFTs, controlled and secure, to avoid direct player access to minting permissions.
 - **Storage Solution**: An Amazon S3 bucket will be used for storing NFT metadata.
-- **Security Note**: For tutorial simplicity, we will run the minting server locally without additional security layers, though this is not recommended for operational games.
+- **Security Note**: For tutorial simplicity, we will run the minting server locally without additional security layers, though this is not recommended for operational games which should be deployed in a secure production environment.
 
 ## Minting Process
 1. **Login**: The game logs the player in with the Immtuable Passport.
