@@ -123,7 +123,7 @@ public class ApiService : MonoBehaviour
 
 ### Step 3: Fetch Image Function
 
-We need a function to fetch the image for the NFTs separately as the metadata only returns the image URL of the NFT
+We need a function to fetch the image for the NFTs separately as the metadata only returns the image URL of the NFT. To do so, we need to update our `ApiService.cs` file.
 
 ```csharp
 public static async Task<Texture2D> FetchImage(string imageUrl)
