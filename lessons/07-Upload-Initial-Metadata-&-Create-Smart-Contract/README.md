@@ -12,7 +12,7 @@ Welcome to Lesson 07 of our course! In this tutorial, we'll establish the founda
 1. Uploading the **collection metadata** to our AWS S3 bucket.
 2. Creating and deploying a smart contract for the collection using Immutable Hub.
 
-*Note*: We won't be uploading metadata for individual NFTs in this lesson. Instead, our focus is on setting up the collection's metadata, which is crucial for dynamically generating NFTs during gameplay.
+*Note*: Our focus for this lesson is setting up the collection's metadata, not the individual NFTs inside the collection.
 
 ## Step-by-Step Guide
 
