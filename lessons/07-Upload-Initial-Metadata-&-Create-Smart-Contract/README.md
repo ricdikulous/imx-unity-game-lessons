@@ -31,7 +31,7 @@ S3_BUCKET_NAME=
 S3_REGION=
 ```
 
-#### Upload Function in our `metadataService.ts` initialization Script 
+#### Upload Function in our `metadataService.ts` initialization script 
 - Load the env variables
 ```typescript
 import * as dotenv from 'dotenv'
