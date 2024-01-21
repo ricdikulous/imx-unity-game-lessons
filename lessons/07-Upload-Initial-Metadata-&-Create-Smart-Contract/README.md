@@ -17,7 +17,7 @@ Welcome to Lesson 07 of our course! In this tutorial, we'll establish the founda
 ## Step-by-Step Guide
 
 ### Prepare the Metadata
-- Copy the `only-metadata` folder from this github lesson available [here](lessons/07-Upload-Initial-Metadata-&-Create-Smart-Contract/only-metadata).
+- Copy the `only-metadata` folder from this github lesson available [here](..lessons/07-Upload-Initial-Metadata-&-Create-Smart-Contract/only-metadata).
 - Update the values of the `contract.json` file and the `logo.png` in your project's `metadata` folder.
 - Note that the `contract.json` image field will automatically be updated to reference the logo's URL.
 
