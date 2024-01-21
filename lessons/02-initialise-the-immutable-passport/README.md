@@ -1,4 +1,4 @@
-# Lesson 2: Initializing the Immutable Passport in Unity
+# Lesson 2: Initializing Immutable Passport in Unity
 
 In this lesson, we'll guide you through the process of initializing the Immutable Passport in Unity. This is an essential step if you plan to use Immutable for user authentication in your Unity game.
 
