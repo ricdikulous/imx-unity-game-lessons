@@ -4,6 +4,14 @@ In this lesson, we will demonstrate how to integrate the Immutable Passport for 
 
 In the lesson, we successfully logged the player in, but we still have placeholder data for the player's information and lack the mechanism to properly log them out. In this lesson, we'll address these issues.
 
+## Overview
+
+Here's an overview of what we'll cover in this lesson:
+
+1. Update the Loadout script that is responsible for what is shown on the main menu
+2. Update the Profile script which populates the data on the profile page
+3. Run the game to test if our changes are working
+
 ## Prerequisite
 
 Before you begin, make sure you have already logged a play in using the Immutable Passport, if you haven't already you can follow the [lesson log in the player here](../03-log-the-player-in/README.md). 
