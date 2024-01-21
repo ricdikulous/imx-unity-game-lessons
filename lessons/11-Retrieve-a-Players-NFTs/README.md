@@ -9,6 +9,8 @@ Here's an overview of what we'll cover in this lesson:
 ## Prerequisites
 This lesson assumes that you already have a smart contract in place and are able to mint NFTs from that contract. If you haven't done that already please go back and complete the [previous lessons](../10-Minting-Endpoint/README.md).
 
+If you haven't already, install the [Immutable SDK](https://docs.immutable.com/docs/zkEVM/sdks/typescript) using `npm install @imtbl/sdk`
+
 ## Steps for Retrieving a Player's NFTs
 
 ### Step 1: Implement The Function to retrieve the NFTs
