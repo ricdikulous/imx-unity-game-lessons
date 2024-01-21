@@ -7,7 +7,7 @@ In this lesson, we will demonstrate how to integrate the Immutable Passport for 
 Here's an overview of what we'll cover in this lesson:
 
 1. Update the Loadout script that is responsible for what is shown on the main menu
-2. Update the Profile script which populates the data on the profile page
+2. Update the Profile script which populates the data on the profile page and logs the player out
 3. Run the game to test if our changes are working
 
 ## Prerequisite
