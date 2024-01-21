@@ -13,7 +13,7 @@ Here's an overview of what we'll cover in this lesson:
 ## Environment File Update and Script Creation
 
 ### Step 1: Update Environment File
-Clone the `permission` project folder from [here](../09-Setting-Up-Smart-Contract%20Permissions:Granting-the-Minter-Role/permission) and then navigate to the `.env` file. Add the `PRIVATE_KEY` of your minting wallet and the `CONTRACT_ADDRESS` of your NFT contract.
+Clone the `permission` project folder from [here](../09-Setting-Up-Smart-Contract%20Permissions:Granting-the-Minter-Role/permission) and then create a `.env` file by copying the example one. Add the `PRIVATE_KEY` of your minting wallet and the `CONTRACT_ADDRESS` of your NFT contract.
 
  - Remember to securely handle the `PRIVATE_KEY`
 - You can find your `CONTRACT_ADDRESS` in your project on the [Immutable Hub](https://hub.immutable.com)
