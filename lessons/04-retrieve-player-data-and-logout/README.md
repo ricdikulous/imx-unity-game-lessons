@@ -2,8 +2,6 @@
 
 In this lesson, we will demonstrate how to integrate the Immutable Passport for retrieving a player's profile information and implement the functionality to log the player out. 
 
-In the lesson, we successfully logged the player in, but we still have placeholder data for the player's information and lack the mechanism to properly log them out. In this lesson, we'll address these issues.
-
 ## Overview
 
 Here's an overview of what we'll cover in this lesson:
