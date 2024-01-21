@@ -1,5 +1,5 @@
 # Lesson 08: Dynamic Metadata Upload for Individual Game Assets
-Welcome to Lesson 08, where we focus on the dynamic upload of metadata, a core feature in creating unique NFTs for our players. In our 'Trash Dash' game, players can earn randomized NFT rewards. This tutorial sets up the core dynamic metadata functionality that we will use in later lessons to mint a random NFT.
+Welcome to Lesson 08, where we focus on the dynamic upload of metadata. In our 'Trash Dash' game, players can earn randomized NFT rewards. This tutorial sets up the core dynamic metadata functionality that we will use in later lessons to mint a random NFT.
 
 ## Overview
 Here's an overview of what we'll cover in this lesson:
