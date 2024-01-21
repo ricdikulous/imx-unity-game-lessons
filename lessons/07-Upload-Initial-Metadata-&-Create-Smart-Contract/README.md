@@ -152,7 +152,7 @@ Collection Metadata URI: https://${bucketName}.s3.amazonaws.com/contract.json
 "init-metadata": "ts-node -e \"import { init } from './src/metadataService'; init();\""
 ```
 - Run the script using `npm run init-metadata`.
-- Note down the `Base URI` and the `Collection Metadata URI`
+- Note down the `Base URI` and the `Collection Metadata URI`.
 
 #### Deploy the Smart Contract
 - Go to [https://hub.immutable.com](https://hub.immutable.com/) to deploy the smart contract for your project.
