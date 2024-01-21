@@ -10,15 +10,13 @@ Here's an overview of what we'll cover in this lesson:
 - Understanding of the 'ethers' library and environment variable management in Node.js.
 - Access to Immutable Hub and your NFT contract.
 
-
-
 ## Environment File Update and Script Creation
 
 ### Step 1: Update Environment File
 Include the `PRIVATE_KEY` of your minting wallet and the `CONTRACT_ADDRESS` of your NFT contract in your `.env` file.
 
  - Remember to securely handle the `PRIVATE_KEY`
-- You can find you `CONTRACT_ADDRESS` on the [https://hub.immutable.com](https://hub.immutable.com)
+- You can find you `CONTRACT_ADDRESS` in your project on the [https://hub.immutable.com](https://hub.immutable.com)
 
 ```sh
 PRIVATE_KEY=
