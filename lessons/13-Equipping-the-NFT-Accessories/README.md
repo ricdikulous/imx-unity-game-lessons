@@ -3,7 +3,7 @@ In Lesson 13, we're enhancing "Trash Dash" by integrating NFTs into the game's m
 
 ## Overview
 Here's an overview of what we'll cover in this lesson:
-1. Examine the pre-NFT method of accessory management.
+1. Examine the pre-NFT method of accessory management and how we will change it to include NFTs.
 2. Update the game to link accessory ownership with NFTs.
 3. Demonstrate in-game NFT accessory equipment.
 
