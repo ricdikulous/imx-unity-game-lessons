@@ -16,7 +16,7 @@ Here's an overview of what we'll cover in this lesson:
 Include the `PRIVATE_KEY` of your minting wallet and the `CONTRACT_ADDRESS` of your NFT contract in your `.env` file.
 
  - Remember to securely handle the `PRIVATE_KEY`
-- You can find you `CONTRACT_ADDRESS` in your project on the [https://hub.immutable.com](https://hub.immutable.com)
+- You can find you `CONTRACT_ADDRESS` in your project on the [Immutable Hub](https://hub.immutable.com)
 
 ```sh
 PRIVATE_KEY=
