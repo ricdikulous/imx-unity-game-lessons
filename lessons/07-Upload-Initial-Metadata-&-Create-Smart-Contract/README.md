@@ -1,4 +1,4 @@
-# Lesson 07: Upload NFT Collection Metadata & Create Smart Contract
+# Lesson 07: Upload NFT Collection Metadata & Deploy Smart Contract
 
 ## Prerequisites
 Before starting this lesson, make sure you have:
