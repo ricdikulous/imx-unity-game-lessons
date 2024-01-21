@@ -5,7 +5,7 @@ In Lesson 13, we're enhancing "Trash Dash" by integrating NFTs into the game's m
 Here's an overview of what we'll cover in this lesson:
 1. Examine the pre-NFT method of accessory management.
 2. Update the game to link accessory ownership with NFTs.
-3. Demonstrate the integration in-game.
+3. Demonstrate in-game NFT accessory equipment.
 
 ## Prerequisites
 In the previous lessons we have setup a server for retrieving the player's NFTs and created an ApiService in our game to call that server. If you haven't already you can complete that in [previous lessons](../12-Display-the-Players-NFTs/README.md)
