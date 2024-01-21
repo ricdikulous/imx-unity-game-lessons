@@ -100,7 +100,7 @@ In this lesson, we've enhanced our NFT functionality by:
 - Implementing dynamic metadata selection for unique NFT rewards.
 - Demonstrating the functionality through Swagger.
 
-We're now ready to move on to granting the minter role, which will bring us closer to actual NFT creation in "Trash Dash".
+We're now ready to move on to granting the minter role, which will bring us closer to NFT minting in "Trash Dash".
 
 ## Next Steps
 Join us in the next lesson where we'll set up the minter role, paving the way for minting NFTs in-game and elevating the overall player experience.
