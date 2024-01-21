@@ -20,13 +20,13 @@ We've updated our project to include the Express framework, facilitating API end
 - [https://swagger.io](https://swagger.io)
 
 ## Project Endpoints
-Our project currently has two primary endpoints in the `routes.ts` file:
+Our [project](../08-Dynamically-Upload-Metadata/server-metadata) currently has two primary endpoints in the `routes.ts` file:
 - A POST endpoint for minting NFTs.
 - A GET endpoint for retrieving player's NFTs.
 Both are currently set to return mocked values.
 
 ## Metadata Folder Structure
-We have restructured our `metadata` folder available [here](../08-Dynamically-Upload-Metadata/server-metadata), adding two subfolders:
+We have restructured our `metadata` folder by adding two subfolders:
 - `images/`: Stores visual representations of NFTs.
 - `metadata/`: Contains JSON files describing each NFT's attributes.
 
