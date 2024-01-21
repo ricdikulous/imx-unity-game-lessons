@@ -31,7 +31,7 @@ We have restructured our `metadata` folder available [here](../08-Dynamically-Up
 - `metadata/`: Contains JSON files describing each NFT's attributes.
 
 ## Upload Random Metadata Function
-We're introducing a new function in our `metadataService`. This function is responsible for uploading random metadata from our collection.
+We're introducing a new function in our `metadataService.ts` file. This function is responsible for uploading random metadata from our collection.
 
 ```typescript
 export async function uploadRandomMetadata(tokenId: number) {
