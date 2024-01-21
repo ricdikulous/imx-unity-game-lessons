@@ -6,8 +6,8 @@ In this lesson, we'll guide you through the process of initializing the Immutabl
 
 Here's an overview of what we'll cover in this lesson:
 
-1. Create a and configure the project in the Immutable Hub.
-2. Write a script to initialize the Immutable Passport.
+1. Create and configure the project in the Immutable Hub.
+2. Write a script to initialize Immutable Passport.
 3. Add the script to a game object in Unity.
 4. Test the initialization process.
 
