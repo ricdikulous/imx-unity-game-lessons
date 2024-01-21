@@ -39,10 +39,11 @@ public class PassportService
 }
 ```
 
-Update the `FetchNFTs` function in the `NftInventoryUI.cs` class to use this new service and function
+Update the `FetchNFTs` function in the `NftInventoryUI.cs` class to use this new service and function. We're currently returning the first account returned on the list but you can give the player a choice.
 
 ```csharp
 List<string> accounts = await PassportService.FetchPlayerAccounts();
+List<TokenObject> tokenObjects = await ApiService.GetTokens(accounts[0]);
 ```
 
 ### Step 2: ApiService and Get Tokens Function
