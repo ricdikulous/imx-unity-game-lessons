@@ -3,9 +3,8 @@ In Lesson 11, we focus on retrieving a player's NFTs using Immutable's SDK.
 
 ## Overview
 Here's an overview of what we'll cover in this lesson:
-1. Install the Immutable SDK
-2. Adding a new function in the contract service and refine our API Endpoint to return a list of NFTs owned by a player
-3. Test our changes in Swagger
+1. Adding a new function in the contract service and refine our API Endpoint to return a list of NFTs owned by a player
+2. Test our changes in Swagger
 
 ## Prerequisites
 This lesson assumes that you already have a smart contract in place and are able to mint NFTs from that contract. If you haven't done that already please go back and complete the [previous lessons](../10-Minting-Endpoint/README.md).
