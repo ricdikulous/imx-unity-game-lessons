@@ -1,18 +1,21 @@
 # Lesson 07: Upload NFT Collection Metadata & Deploy Smart Contract
 
+Welcome to Lesson 07 of our course! In this tutorial, we'll establish the foundation of our NFT collection for the "Trash Dash" game. 
+
+## Overview
+
+Here's an overview of what we'll cover in this lesson:
+1. Uploading the **collection metadata** to our AWS S3 bucket.
+2. Creating and deploying a smart contract for the collection using Immutable Hub.
+
+*Note*: Our focus for this lesson is setting up the collection's metadata, not the individual NFTs inside the collection.
+
 ## Prerequisites
 Before starting this lesson, make sure you have:
 - Access to the Immutable Hub.
 - An AWS account with an S3 bucket set up.
 
 If you haven't already, you can follow our lesson where we [set up an S3 bucket using the AWS CDK here](../06-Creating-an-S3-Bucket-for-NFT-Metadata/README.md).
-
-## Overview
-Welcome to Lesson 07 of our course! In this tutorial, we'll establish the foundation of our NFT collection for the "Trash Dash" game. This involves two critical steps:
-1. Uploading the **collection metadata** to our AWS S3 bucket.
-2. Creating and deploying a smart contract for the collection using Immutable Hub.
-
-*Note*: Our focus for this lesson is setting up the collection's metadata, not the individual NFTs inside the collection.
 
 ## Step-by-Step Guide
 
