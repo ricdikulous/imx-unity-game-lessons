@@ -1,17 +1,17 @@
 # Lesson 08: Upload Metadata Script
+Welcome to Lesson 08, where we focus on the dynamic upload of metadata, a core feature in creating unique NFTs for our players.
+
+## Overview
+Here's an overview of what we'll cover in this lesson:
+1. Integration with Express and Swagger for API interaction.
+2. Transitioning from static to dynamic metadata upload.
+3. Implementing a function for random metadata selection in the game.
 
 ## Prerequisites
 - Familiarity with Express framework and Swagger.
 - Basic understanding of REST API endpoints.
 
 In the previous lesson we created the contract for the collection and wrote code to upload the collection metadata to our S3 bucket. If you haven't don't that already you [check it out here](../07-Upload-Initial-Metadata-&-Create-Smart-Contract/README.md)
-
-## Overview
-Welcome to Lesson 08, where we make a significant leap in our "Trash Dash" game's NFT integration. This lesson focuses on the dynamic upload of metadata, a core feature in creating unique NFTs for our players. We'll delve into the following:
-
-- Integration with Express and Swagger for API interaction.
-- Transitioning from static to dynamic metadata upload.
-- Implementing a function for random metadata selection in the game.
 
 ## Bootstrap and Swagger Integration
 We've updated our project to include the Express framework, facilitating API endpoint exposure. Additionally, Swagger is now integrated for efficient API documentation and testing.
