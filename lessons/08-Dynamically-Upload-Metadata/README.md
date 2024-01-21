@@ -11,7 +11,7 @@ Here's an overview of what we'll cover in this lesson:
 - Familiarity with Express framework and Swagger.
 - Basic understanding of REST API endpoints.
 
-In the previous lesson we created the contract for the collection and wrote code to upload the collection metadata to our S3 bucket. You can [check it out here](../07-Upload-Initial-Metadata-&-Create-Smart-Contract/README.md)
+In the previous lesson we created the contract for the collection and wrote code to upload the collection metadata to our S3 bucket. You can check that out [here](../07-Upload-Initial-Metadata-&-Create-Smart-Contract/README.md).
 
 ## Bootstrap and Swagger Integration
 We've updated our project to include the Express framework, facilitating API endpoint exposure. Additionally, Swagger is now integrated for efficient API documentation and testing.
