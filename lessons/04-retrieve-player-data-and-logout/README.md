@@ -10,7 +10,7 @@ Here's an overview of what we'll cover in this lesson:
 2. Update the Profile script which populates the data on the profile page and logs the player out
 3. Run the game to test if our changes are working
 
-## Prerequisite
+## Prerequisites
 
 Before you begin, make sure you have already created the functionality to log a player in with Immutable Passport. If you haven't already, you can achieve this in our previous lesson for [logging in the player here](../03-log-the-player-in/README.md). 
 
