@@ -9,8 +9,8 @@ If you haven't already, you can follow our lesson where we [set up an S3 bucket 
 
 ## Overview
 Welcome to Lesson 07 of our course! In this tutorial, we'll establish the foundation of our NFT collection for the "Trash Dash" game. This involves two critical steps:
-1. **Uploading the initial collection metadata** to our AWS S3 bucket.
-2. **Creating and linking a smart contract** for the collection using Immutable Hub.
+1. Uploading the **collection metadata** to our AWS S3 bucket.
+2. Creating and deploying a smart contract for the collection using Immutable Hub.
 
 *Note*: We won't be uploading metadata for individual NFTs in this lesson. Instead, our focus is on setting up the collection's metadata, which is crucial for dynamically generating NFTs during gameplay.
 
