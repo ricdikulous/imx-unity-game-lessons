@@ -104,10 +104,11 @@ const [metadata] = await Promise.all([
 ```
 
 ### Step 4: Run Application and Test Minting
-To test it out you can run `npm run dev` and navigate to `http://localhost:3000` where you will see the swagger docs
-- Execute the `/mint` POST endpoint.
+To test it out you can run `npm run dev` and navigate to `http://localhost:3000` where you will see the Swagger UI:
+- Execute the `/mint` POST endpoint and set the recipient address for the NFT.
 - Verify the image and metadata URLs post-upload.
-- Confirm the minting process on the [Immutable Hub](https://hub.immutable.com)'s block explorer.
+
+You can confirm this step was successful by navigating to the [Immutable Hub](https://hub.immutable.com) and clicking on the `Block Explorer` for your NFT collection - you should see a transaction with `Token transfer` in the Type field and `mint` in the Method field.
 
 ## Conclusion
 With this lesson, you'll have a fully functional endpoint capable of dynamically uploading metadata and minting NFTs, marking a significant step in integrating NFT functionality into "Trash Dash".
