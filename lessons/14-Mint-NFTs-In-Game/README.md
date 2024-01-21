@@ -20,6 +20,22 @@ In the previous lessons we have setup a server for retrieving the player's NFTs 
 - **NFT Popup Introduction**: Replace in-game currency rewards with a visual NFT popup.
 - **Placeholder Functionality**: Currently, the NFT popup is hardcoded and non-functional.
 
+### Add the NFT Metadata Class
+
+Add the NftMetadata class to the `ApiService.cs` file
+
+```csharp
+[Serializable]
+public class NftMetadata
+{
+    public int id;
+    public string image;
+    public string token_id;
+    public string name;
+    public string description;
+}
+```
+
 ### Enabling NFT Minting
 
 Add a function to the `ApiService.cs` class to call our mint endpoint
