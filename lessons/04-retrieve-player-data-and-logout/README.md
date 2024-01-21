@@ -12,7 +12,7 @@ Here's an overview of what we'll cover in this lesson:
 
 ## Prerequisite
 
-Before you begin, make sure you have already logged a play in using the Immutable Passport, if you haven't already you can follow the [lesson log in the player here](../03-log-the-player-in/README.md). 
+Before you begin, make sure you have already created the functionality to log a player in with the Immutable Passport. If you haven't already, you can achieve this in our previous lesson for [logging in the player here](../03-log-the-player-in/README.md). 
 
 ## Updating the LoadoutState Script
 
