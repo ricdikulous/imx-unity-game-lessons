@@ -13,6 +13,9 @@ This lesson assumes that you already have a smart contract in place and are able
 
 ## Steps for Retrieving a Player's NFTs
 
+Ensure you have the correct imports:
+`import { config as immutableConfig, blockchainData } from '@imtbl/sdk'`
+
 ### Step 1: Implement The Function to retrieve the NFTs
 
 Implement `listNFTs` function in `contractService.ts`
