@@ -1,6 +1,14 @@
-# Lesson 3: Using Immutable Passport for Player Login
+# Lesson 3: Player Login with Immutable Passport
 
 Welcome to this lesson on how to use the Immutable Passport for player login in your Unity project. In this tutorial, we will walk you through the steps to integrate the Immutable Passport into your game to allow players to log in seamlessly.
+
+## Overview
+
+Here's an overview of what we'll cover in this lesson:
+
+1. Finding the login script
+2. Updating the script to utilize Passport
+3. Running the game to validate correct login
 
 ## Prerequisites
 
