@@ -12,7 +12,7 @@ Here's an overview of what we'll cover in this lesson:
 
 ## Prerequisites
 
-Before you begin, make sure you have already initialized the Immutable Passport in your project, if you haven't already you can follow the [lesson to initialise Passport here](../02-initialise-the-immutable-passport/README.md). 
+Before you begin, make sure you have already initialized the Immutable Passport in your project, if you haven't already you can follow the [lesson to initialize Passport here](../02-initialise-the-immutable-passport/README.md). 
 
 ## Locate or create the Login Script
 
