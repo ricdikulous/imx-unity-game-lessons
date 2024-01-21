@@ -1,6 +1,6 @@
 # Lesson 07: Upload NFT Collection Metadata & Deploy Smart Contract
 
-Welcome to Lesson 07 of our course! In this tutorial, we'll establish the foundation of our NFT collection for the "Trash Dash" game. 
+Welcome to Lesson 07 of our course! In this tutorial, we'll establish the metadata of our NFT collection for the "Trash Dash" game and deploy our collection's smart contract via the Immutable Hub.
 
 ## Overview
 
