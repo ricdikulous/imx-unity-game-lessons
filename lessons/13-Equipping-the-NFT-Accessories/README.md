@@ -8,7 +8,7 @@ Here's an overview of what we'll cover in this lesson:
 3. Demonstrate in-game NFT accessory equipment.
 
 ## Prerequisites
-In the previous lessons we have setup a server for retrieving the player's NFTs and created an ApiService in our game to call that server. If you haven't already you can complete that in [previous lessons](../12-Display-the-Players-NFTs/README.md)
+In the previous lessons we have setup a server for retrieving the player's NFTs and created an ApiService in our game to call that server. If you haven't already you can complete that in [previous lessons](../12-Display-the-Players-NFTs/README.md).
 
 ## How equipping NFTs Worked
 
