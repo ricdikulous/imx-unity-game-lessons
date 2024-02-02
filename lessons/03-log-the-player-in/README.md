@@ -48,7 +48,7 @@ public override void Tick()
         if(passport != null)
         {
             loginButton.interactable = true;
-            loginButton.GetComponentInChildren<Text>().text = "Login!";
+            loginButton.GetComponentInChildren<Text>().text = "Sign in with Immutable";
         }
     }
 }
@@ -72,23 +72,38 @@ public async void LoginUser()
     {
         // Use existing credentials to connect to Passport
         Debug.Log("Connecting to Passport using saved credentials...");
-        bool connected = await passport.ConnectSilent();
+        bool connected = await passport.Login(useCachedSession: true);
         if (!connected)
         {
             Debug.Log("Failed to connect using saved credentials");
-            await passport.Connect();
+            // macOS editor (play scene) does not support deeplinking
+            #if UNITY_ANDROID || UNITY_IPHONE || (UNITY_STANDALONE_OSX && !UNITY_EDITOR_OSX)
+                await passport.LoginPKCE();
+            #else
+                await passport.Login();
+            #endif
         }
     } else {
-        await passport.Connect();
-    }        
+        #if UNITY_ANDROID || UNITY_IPHONE || (UNITY_STANDALONE_OSX && !UNITY_EDITOR_OSX)
+            await passport.LoginPKCE();
+        #else
+            await passport.Login();
+        #endif
+    }
+    #if UNITY_ANDROID || UNITY_IPHONE || (UNITY_STANDALONE_OSX && !UNITY_EDITOR_OSX)
+        await passport.ConnectImxPKCE();
+    #else
+        await passport.ConnectImx();
+    #endif
     manager.SwitchState("Loadout");
 }
 ```
 
 - This function is invoked when the player clicks the login button.
 - It checks if the player has existing credentials using `passport.HasCredentialsSaved()`.
-- If credentials exist, it attempts to log the player in seamlessly by calling `passport.ConnectSilent()`. If successful, it returns `true`.
-- If the credentials are not valid or there are no saved credentials, then the player must log in using the browser-based flow using `passport.Connect()`
+- If credentials exist, it attempts to log the player in seamlessly by calling `passport.Login(useCachedSession: true);`. If successful, it returns `true`.
+- If the credentials are not valid or there are no saved credentials, then the player must log in using the browser-based flow using `passport.Login()` or `await passport.LoginPKCE()` if PKCE is needed
+- We then connect them player to Immutable using `passport.ConnectImx()` or once again `passport.ConnectImxPKCE()` if PKCE is needed
 - We then send the player to the main menu using `manager.SwitchState("Loadout")`
 
 
