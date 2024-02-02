@@ -75,12 +75,16 @@ public async Task Logout()
 {
     if (passport != null)
     {
-        await passport.Logout();
+        #if UNITY_ANDROID || UNITY_IPHONE || (UNITY_STANDALONE_OSX && !UNITY_EDITOR_OSX)
+            await passport.LogoutPKCE();
+        #else
+            await passport.Logout();
+        #endif
     }
     manager.SwitchState("Login");
 }
 ```
-- We will call passport.Logout() to actually log the player out
+- We will call `passport.Logout()` or `passport.LogoutPKCE()` to actually log the player out
 - This code function is public so we can use it in other places of the code
 
 ## Locate the Profile Script
