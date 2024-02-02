@@ -18,13 +18,14 @@ using UnityEngine.Analytics;
 public class LoginState : AState
 {
     public Canvas loginCanvas;
-	[Header("Other Data")]
-	public Button loginButton;
+    
+    [Header("Other Data")]
+    public Button loginButton;
 
-	public MeshFilter skyMeshFilter;
+    public MeshFilter skyMeshFilter;
     public MeshFilter UIGroundFilter;
 
-	public AudioClip menuTheme;
+    public AudioClip menuTheme;
 
     private Passport passport;
 
@@ -68,7 +69,7 @@ public class LoginState : AState
             if(passport != null)
             {
                 loginButton.interactable = true;
-                loginButton.GetComponentInChildren<Text>().text = "Login!";
+                loginButton.GetComponentInChildren<Text>().text = "Sign in with Immutable";
             }
         }
 
@@ -82,15 +83,29 @@ public class LoginState : AState
         {
             // Use existing credentials to connect to Passport
             Debug.Log("Connecting to Passport using saved credentials...");
-            bool connected = await passport.ConnectSilent();
+            bool connected = await passport.Login(useCachedSession: true);
             if (!connected)
             {
                 Debug.Log("Failed to connect using saved credentials");
-                await passport.Connect();
+                // macOS editor (play scene) does not support deeplinking
+                #if UNITY_ANDROID || UNITY_IPHONE || (UNITY_STANDALONE_OSX && !UNITY_EDITOR_OSX)
+                    await passport.LoginPKCE();
+                #else
+                    await passport.Login();
+                #endif
             }
         } else {
-            await passport.Connect();
-        }        
+            #if UNITY_ANDROID || UNITY_IPHONE || (UNITY_STANDALONE_OSX && !UNITY_EDITOR_OSX)
+                await passport.LoginPKCE();
+            #else
+                await passport.Login();
+            #endif
+        }
+        #if UNITY_ANDROID || UNITY_IPHONE || (UNITY_STANDALONE_OSX && !UNITY_EDITOR_OSX)
+            await passport.ConnectImxPKCE();
+        #else
+            await passport.ConnectImx();
+        #endif
         manager.SwitchState("Loadout");
     }
 
