@@ -183,7 +183,11 @@ public class LoadoutState : AState
     {
         if (passport != null)
         {
-            await passport.Logout();
+            #if UNITY_ANDROID || UNITY_IPHONE || (UNITY_STANDALONE_OSX && !UNITY_EDITOR_OSX)
+                await passport.LogoutPKCE();
+            #else
+                await passport.Logout();
+            #endif
         }
         manager.SwitchState("Login");
     }
